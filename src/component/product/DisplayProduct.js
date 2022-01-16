@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {Link, NavLink} from "react-router-dom"
+// import {Link, NavLink} from "react-router-dom"
 import {AddToCart, CloseAlert} from "../../redux/action/cart/CartAction"
 
 function DisplayProduct({img, title, price, id, slug, alertMsg}) {
     const dispatch = useDispatch()
-    const cartItems = useSelector(state => state.carts)
+    // const cartItems = useSelector(state => state.carts)
     const [showMsg, setShowMsg] = useState(false);
     const handleCart = () =>{
     let data ={

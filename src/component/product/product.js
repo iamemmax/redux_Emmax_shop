@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getProductAction, LoadMore} from "../../redux/action/product/productAction"
+import {getProductAction} from "../../redux/action/product/productAction"
 import DisplayProduct from './DisplayProduct'
 import "./css/home.scss"
-import Loading from "../config/Loading"
+// import Loading from "../config/Loading"
 import InfiniteScroll from 'react-infinite-scroll-component';
 import FetchLoader from '../config/FetchLoader'
-import Search from '../header/Search'
-import {filterPages, filterProduct, productSelector} from '../select/Select'
+// import Search from '../header/Search'
+import {filterPages, filterProduct} from '../select/Select'
 
 
 
@@ -34,7 +34,7 @@ const  Product = () => {
         useEffect(() => {
             // dispatch(getProductAction(page)) 
             dispatch(getProductAction(page)) 
-            }, [page])
+            },[dispatch, page])
             
          
 

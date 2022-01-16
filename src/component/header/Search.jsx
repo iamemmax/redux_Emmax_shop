@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import  *  as aiIcions  from "react-icons/ai";
+// import  *  as aiIcions  from "react-icons/ai";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector } from 'react-redux';
 import FetchLoader from '../config/FetchLoader';

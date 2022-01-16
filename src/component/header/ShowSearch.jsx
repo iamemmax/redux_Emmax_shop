@@ -6,7 +6,7 @@ import {AddToCart, CloseAlert} from "../../redux/action/cart/CartAction"
 
 const ShowSearch = ({img, title, price, slug, id}) => {
     const dispatch = useDispatch()
-    const cartItems = useSelector(state => state.carts)
+    //const  =  => .carts)
     const [showMsg, setShowMsg] = useState(false);
     const handleCart = () =>{
     let data ={

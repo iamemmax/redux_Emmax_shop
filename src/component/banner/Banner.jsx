@@ -1,9 +1,8 @@
-import React, { useEffect, useState} from 'react'
+import React  from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "./banner.scss";
-import  *  as aiIcions  from "react-icons/ai";
 
 import Navigation from '../header/Navigation';
 import { useLocation } from 'react-router-dom';
@@ -61,7 +60,7 @@ function Banner() {
 
     
     return (
-        <div className={ location.pathname !="/" ? 'removeBanner': 'banner'}>
+        <div className={ location.pathname !== "/" ? 'removeBanner': 'banner'}>
            <Navigation />
         <div className='banner-container '>
         <Slider {...settings}>

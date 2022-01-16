@@ -1,22 +1,23 @@
 import React, { useState } from 'react'
-import  *  as ioIcions  from "react-icons/io5"
+// import  *  as ioIcions  from "react-icons/io5"
 import  *  as aiIcions  from "react-icons/ai";
 import  *  as faIcions  from "react-icons/fa";
-import  *  as HiIcions  from "react-icons/hi";
+import { Link } from 'react-router-dom';
+// import  *  as HiIcions  from "react-icons/hi";
 import "../banner/banner.scss"
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 
 function Navigation() {
 
     const [toggle, setToggle] = useState(null);
     const [removeToggle, setRemoveToggle] = useState(false);
-  const location = useLocation()
+//   const location = useLocation()
 
 
 const handleToggle = (e) =>{
 
-    if( e.target.id == "menuIcon"){
+    if( e.target.id === "menuIcon"){
         setToggle(!toggle)
         setRemoveToggle(true)
     }else{
@@ -42,16 +43,16 @@ const handleRemove = () =>{
                 <nav>
                     
                     <ul className='ul'>
-                <li><a href="#"> <faIcions.FaBaby  id='faIcon'/> Babies</a></li>
-                <li><a href="#">< faIcions.FaTv id='faIcon'/>ComputerLine Electronics</a></li>
-                <li><a href="#"><faIcions.FaChair id='faIcon'/> Home & Office</a></li>
-                <li><a href="#"><faIcions.FaShoppingBag id='faIcon'/> Fashion</a></li>
-                <li><a href="#"><faIcions.FaTruckMonster id='faIcon'/> Automobile</a></li>
-                <li><a href="#"><faIcions.FaUtensilSpoon id='faIcon'/>Kitchen</a></li>
-                <li><a href="#"><faIcions.FaTshirt id='faIcon'/> Supermarket</a></li>
-                <li><a href="#"><faIcions.FaMobileAlt id='faIcon'/> Phone & Accessories</a></li>
-                <li><a href="#"><faIcions.FaThermometerThreeQuarters id='faIcon'/> Health and Beauty</a></li>
-                <li><a href="#"><faIcions.FaDesktop id='faIcon'/> Computer & Accessories</a></li>
+                <li><Link to="#"> <faIcions.FaBaby  id='faIcon'/> Babies</Link></li>
+                <li><Link to="#">< faIcions.FaTv id='faIcon'/>ComputerLine Electronics</Link></li>
+                <li><Link to="#"><faIcions.FaChair id='faIcon'/> Home & Office</Link></li>
+                <li><Link to="#"><faIcions.FaShoppingBag id='faIcon'/> Fashion</Link></li>
+                <li><Link to="#"><faIcions.FaTruckMonster id='faIcon'/> Automobile</Link></li>
+                <li><Link to="#"><faIcions.FaUtensilSpoon id='faIcon'/>Kitchen</Link></li>
+                <li><Link to="#"><faIcions.FaTshirt id='faIcon'/> Supermarket</Link></li>
+                <li><Link to="#"><faIcions.FaMobileAlt id='faIcon'/> Phone & Accessories</Link></li>
+                <li><Link to="#"><faIcions.FaThermometerThreeQuarters id='faIcon'/> Health and Beauty</Link></li>
+                <li><Link to="#"><faIcions.FaDesktop id='faIcon'/> Computer & Accessories</Link></li>
             
                 
 
@@ -76,18 +77,17 @@ const handleRemove = () =>{
                     
 
                     <ul className=''>
-                <li><a href="#"> <faIcions.FaBaby  id='faIcon'/> Babies</a></li>
-                <li><a href="#">< faIcions.FaTv id='faIcon'/>ComputerLine Electronics</a></li>
-                <li><a href="#"><faIcions.FaChair id='faIcon'/> Home & Office</a></li>
-                <li><a href="#"><faIcions.FaShoppingBag id='faIcon'/> Fashion</a></li>
-                <li><a href="#"><faIcions.FaTruckMonster id='faIcon'/> Automobile</a></li>
-                <li><a href="#"><faIcions.FaUtensilSpoon id='faIcon'/>Kitchen</a></li>
-                <li><a href="#"><faIcions.FaTshirt id='faIcon'/> Supermarket</a></li>
-                <li><a href="#"><faIcions.FaMobileAlt id='faIcon'/> Phone & Accessories</a></li>
-                <li><a href="#"><faIcions.FaThermometerThreeQuarters id='faIcon'/> Health and Beauty</a></li>
-                <li><a href="#"><faIcions.FaDesktop id='faIcon'/> Computer & Accessories</a></li>
+                    <li><Link to="#"> <faIcions.FaBaby  id='faIcon'/> Babies</Link></li>
+                <li><Link to="#">< faIcions.FaTv id='faIcon'/>ComputerLine Electronics</Link></li>
+                <li><Link to="#"><faIcions.FaChair id='faIcon'/> Home & Office</Link></li>
+                <li><Link to="#"><faIcions.FaShoppingBag id='faIcon'/> Fashion</Link></li>
+                <li><Link to="#"><faIcions.FaTruckMonster id='faIcon'/> Automobile</Link></li>
+                <li><Link to="#"><faIcions.FaUtensilSpoon id='faIcon'/>Kitchen</Link></li>
+                <li><Link to="#"><faIcions.FaTshirt id='faIcon'/> Supermarket</Link></li>
+                <li><Link to="#"><faIcions.FaMobileAlt id='faIcon'/> Phone & Accessories</Link></li>
+                <li><Link to="#"><faIcions.FaThermometerThreeQuarters id='faIcon'/> Health and Beauty</Link></li>
+                <li><Link to="#"><faIcions.FaDesktop id='faIcon'/> Computer & Accessories</Link></li>
             
-                
 
                     </ul>
                 </nav>

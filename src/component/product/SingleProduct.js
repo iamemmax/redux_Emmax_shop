@@ -13,7 +13,7 @@ function SingleProduct() {
 
   useEffect(() => {
     dispatch(getProductById(slug));
-  }, [dispatch]);
+  }, [dispatch, slug]);
   const products = useSelector((state) => state.single);
   let { loading, product } = products;
 

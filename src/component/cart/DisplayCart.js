@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {increase, decrease, deleteItemFromCart} from "../../redux/action/cart/CartAction"
-import {useNavigate} from "react-router-dom"
+// import {useNavigate} from "react-router-dom"
 
-import  *  as ioIcons  from "react-icons/io5"
+// import  *  as ioIcons  from "react-icons/io5"
 import  *  as aiIcons  from "react-icons/ai";
 import  *  as FaIcons  from "react-icons/fa";
 

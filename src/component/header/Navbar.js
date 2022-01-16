@@ -1,6 +1,6 @@
-import React, {useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {NavLink, Link, useNavigate, useLocation} from "react-router-dom"
+import {NavLink, Link, useNavigate, Navigate} from "react-router-dom"
 import {searchProduct} from "../../redux/action/product/productAction"
 import {LogoutUser} from "../../redux/action/user/user"
 import "../header/header.scss"
@@ -14,7 +14,7 @@ function Navbar() {
     const Cart = useSelector(state => state.carts)
     const auth = useSelector(state => state.loggin.userInfo)
     let {isAuthenticated, user} = auth
-    const location = useLocation()
+    // const location = useLocation()
 
     // total cart no
 let { cart} = Cart
@@ -54,13 +54,13 @@ const [toggleRightBar, setToggleRightBar] = useState(null);
 const handleSearch = (e) =>{
     setSearch(e.target.value)
 }
-const navigate = useNavigate()
+// const navigate = useNavigate()
 const handleForm = (e)=>{
     e.preventDefault()
     setQuery(search)
     setSearch("")
 if(query){
-    navigate(`/search/?q=${query}`)
+    Navigate(`/search/?q=${query}`)
     console.log(query);
     dispatch(searchProduct(query))
     
@@ -114,7 +114,7 @@ const handleToggleRightBar = (e) =>{
 
             <div className={toggleRightBar ? 'rightBar showRightBar' : 'rightBar'} >
                 <li><Link to="/">My Account</Link></li>
-                <li><Link to="/">Add Product</Link></li>
+                <li><Link to="/product/new">Add Product</Link></li>
                 <li><Link to="/">My Order</Link></li>
                 <li><Link to="/">My Wishlist</Link></li>
                 <li onClick={handleLogout} id='logoutBtn' >Logout </li>

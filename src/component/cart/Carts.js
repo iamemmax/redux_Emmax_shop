@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import DisplayCart from '../cart/DisplayCart';
 import "./cart.scss"
 
 function Carts() {
     const cartItem = useSelector(state => state.carts)
-    let {loading, cart} = cartItem
+    let { cart} = cartItem
 
 
    

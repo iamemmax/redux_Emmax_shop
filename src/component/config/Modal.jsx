@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import  *  as aiIcions  from "react-icons/ai";
-import  *  as faIcions  from "react-icons/fa";
+// import  *  as faIcions  from "react-icons/fa";
 import  *  as ioIcions  from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import "./model.scss"

@@ -1,4 +1,4 @@
-import { ADD_TO_CART_FAIL, ADD_TO_CART_RESPONSE, ADD_TO_CART_SUCCESS, CLOSE_CART_ALERT, DECREASE_COUNT, DELETE_ITEM_FROM_CART, INCREASE_COUNT, TOTAL_CART_NO } from "../../constant/Product";
+import { ADD_TO_CART_FAIL, ADD_TO_CART_RESPONSE, ADD_TO_CART_SUCCESS, CLOSE_CART_ALERT, DECREASE_COUNT, DELETE_ITEM_FROM_CART, INCREASE_COUNT } from "../../constant/Product";
 
 const initial = {
     cart:[],
@@ -45,7 +45,7 @@ export const AddToCartReducer = (state = initial, {type, payload}) =>{
 
         // close cart alert msg
         case CLOSE_CART_ALERT:
-            state.cart.map(data => data.alertMsg = "")
+            state.cart.map(data => data.alertMsg = "");
 
         case INCREASE_COUNT :
             let increaseCount = state.cart.map((data, key) => {

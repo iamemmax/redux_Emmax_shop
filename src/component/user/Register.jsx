@@ -16,7 +16,7 @@ function Register() {
   const [input, setInput] = useState({username:"", email:"", password:"", password2:""}) 
   const [userImg, setUserImg] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
-  const [imgPreviewError, setImgPreviewError] = useState(null);
+  const [setImgPreviewError] = useState(null);
   
   const handleInput = (e) =>{
     setInput({...input, [e.target.id]:e.target.value}) 
@@ -56,7 +56,7 @@ function Register() {
     const newRegisterUser = useSelector(state => state.newUser)
     let {loading, newUser, error} = newRegisterUser
     let {msg, data} = newUser
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     
     // setTimeout(() => {
     //   if(data !== undefined){

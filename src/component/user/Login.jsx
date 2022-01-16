@@ -22,6 +22,7 @@ const dispatch = useDispatch()
         setInput({...input, [e.target.id]:e.target.value})
     }
    
+    const navigate = useNavigate()
     
     let {email, password} = input
     const loggin = useSelector(state => state.loggin)
@@ -34,10 +35,9 @@ const dispatch = useDispatch()
     
         useEffect(() => {
             userInfo?.isAuthenticated && navigate("/")
-        }, [userInfo]);
+        }, [userInfo, navigate]);
     
         
-    const navigate = useNavigate()
     return (
         <div>
             {loading && <Loading />}

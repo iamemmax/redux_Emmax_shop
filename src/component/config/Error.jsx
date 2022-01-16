@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import  *  as aiIcions  from "react-icons/ai";
 import './error.scss'
 

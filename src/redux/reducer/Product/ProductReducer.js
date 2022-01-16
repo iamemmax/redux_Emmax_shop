@@ -45,7 +45,7 @@ export const GetHotdeal = (state = iniState, { type, payload }) => {
 
 const initial = {
   products: [],
-  currentPage: 0,
+  // currentPage: 0,
   Pages: [],
   totalPage: {},
   search:[]

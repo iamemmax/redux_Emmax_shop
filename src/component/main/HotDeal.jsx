@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import {AddToCart, CloseAlert} from "../../redux/action/cart/CartAction"
+import {AddToCart} from "../../redux/action/cart/CartAction"
 import {getHotdeal} from "../../redux/action/product/productAction"
  
 
@@ -70,7 +70,7 @@ let {loading, hotProduct} = HotDeal
      
         const handleCart = (data) =>{
             
-            let {title, price, id, slug} = data
+            let {title, price, slug} = data
             let dataItem ={
                 img:data.productImg[0].filename, title, price, id:data._id, slug
             }

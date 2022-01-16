@@ -4,9 +4,9 @@ import {newProduct} from "../../redux/action/product/productAction"
 import Loading from '../config/Loading';
 import Modal from '../config/Modal';
 import "./css/productAuth.scss"
-import  *  as aiIcions  from "react-icons/ai";
-import  *  as faIcions  from "react-icons/fa";
-import  *  as ioIcions  from "react-icons/io5";
+// import  *  as aiIcions  from "react-icons/ai";
+// import  *  as faIcions  from "react-icons/fa";
+// import  *  as ioIcions  from "react-icons/io5";
 
 
 function NewProduct() {
@@ -17,7 +17,7 @@ function NewProduct() {
  
     const [input, setInput] = useState({ title:"", price:"", category:"None", postedBy: user._id, description:""});
     const [imgPreview, setImgPreview] = useState(null);
-    const [imgPreviewError, setImgPreviewError] = useState(null);
+    // const [imgPreviewError, setImgPreviewError] = useState(null);
     const [img, setImg] = useState([]);
     const dispatch = useDispatch()
     const handleInput =(e) =>{
@@ -96,7 +96,7 @@ function NewProduct() {
             <div className='imgPreview'>
                 {imgPreview && imgPreview.map((data, index) =>
                     <div>
-                        <img src={data.url} />
+                        <img src={data.url} alt="product images" />
                         <button onClick={() => deleteFile(index)}>del</button>
                         {console.log( index)}
                     </div>
