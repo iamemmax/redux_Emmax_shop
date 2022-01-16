@@ -1,0 +1,15 @@
+@import "../../saas-config/color.scss";
+@import "../../saas-config/font.scss";
+@import "../../saas-config/mixing.scss";
+.imgPreview{
+    width: 100%;
+    background-color: #ffffff !important;
+    height: 1000px;
+    border:"3px solid red";
+    
+
+    img{
+        width: 20px;
+    }
+}
+

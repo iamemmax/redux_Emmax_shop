@@ -1,0 +1,108 @@
+@import "../../saas-config/color.scss";
+@import "../../saas-config/font.scss";
+@import "../../saas-config/mixing.scss";
+
+
+
+.deal-container{
+    @include responsive;
+    background-color: map-get($colors, "light" );
+    height: 400px;
+    margin-bottom: 10px;
+
+    
+    
+    
+    .deal-box-container{
+        @include flex;
+        > div{
+            margin: 5px;
+            transition: transform .5s ease-in-out;
+            text-align: center;
+            border: 2px solid transparent;
+            width: 100%;
+
+            
+
+            a{
+                text-decoration: none;
+                color: #000;
+                
+                
+            img{
+                width: 150px;
+                margin: 0px auto;
+                object-fit: cover;
+                // border: 2px solid red;
+                
+                
+            }
+                h2{
+                    font-size: 16px;
+                    font-weight: 600;
+                    text-align: center;
+                    padding: 10px;
+                }
+                
+                p{
+                    text-align: center;
+                    // padding: 5px;
+                    margin: 5px;
+                    letter-spacing: 2px;
+                font-size: 14px;
+                font-weight: 500;
+                
+                
+                
+            }
+            }
+
+            
+
+        }
+        
+    }
+
+    
+
+}
+
+.product{
+    border: 2px solid lighten($color: $primary, $amount: 86%);
+    #cartIcon{
+        font-size: 30px;
+        transform: scale(0);
+        cursor: pointer;
+        
+    }
+    &:hover{
+        transform: scale(0.9);
+
+    }
+    &:hover #cartIcon{
+        transform: scale(1);
+
+    }
+}
+
+
+.slick-prev{
+    z-index: 5;
+    
+}
+    .slick-prev:before {
+        background-color:lighten( $primary,  10%);
+        padding: 6px;
+      position: absolute;
+      left: 1.5rem !important;
+      z-index: 9 !important;
+  }
+  .slick-next:before {
+      position: fixed;
+      z-index: 9;
+      right: 1.5rem;
+      background-color:lighten( $primary,  10%);
+      padding: 6px;
+
+    }
+  

@@ -1,0 +1,115 @@
+@import "../../saas-config/color.scss";
+@import "../../saas-config/font.scss";
+@import "../../saas-config/mixing.scss";
+
+.shipping-container{
+    @include responsive;
+    height: 300px;
+    background-color: map-get($colors, "light" );
+    // margin-top: 5px;
+    @include flex;
+    background-image: url('https://images.unsplash.com/photo-1605745341112-85968b19335b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHNoaXBwaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &::after{
+        @include after;
+    }
+
+   > div{
+        @include breakpoints(mobile){
+            width: 100%;
+            z-index: 9;
+            height: 170px;
+            text-align: center;
+            @include flex;
+            flex-direction: column;
+            margin: 10px 0;
+            
+            border-bottom: 1px solid #eee;
+            
+            &:nth-child(4){
+                border: none !important;
+            }
+            
+            .icon{
+                color: #fff;
+                background-color:  $secondary ;
+                padding: 10px;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                @include flex;
+                // padding: ;
+                margin-bottom: 10px;
+                font-size: 25px;
+            }
+            h2{
+                color: #fff;
+                padding: 5px;
+                width: 100%;
+                font-size: 18px;
+                font-family: Poppins', sans-serif';
+                font-weight: 500;
+            }
+            p{
+                color: #eee;
+                padding: 5px;
+                line-height: 25px;
+                width: 80%;
+                font-family: 'Montserrat', sans-serif;
+                margin: 0px auto;
+                opacity: .6;
+                font-size: 14px;
+            }
+
+            @include breakpoints(tablet){
+                width: 48.5%;
+                border: 1px solid rgba(238, 238, 238, 0.342);
+                margin: 5px;
+
+                h2{
+                    font-size: 20px;
+                }
+                p{
+                    font-size: 16px;
+                }
+
+                &:nth-child(4){
+                    border: 1px solid rgba(238, 238, 238, 0.342) !important;
+                    
+                }
+            }
+
+            @include breakpoints(laptop){
+                width: 23%;
+                height: 200px;
+                margin: 10px;
+
+
+
+                h2{
+                    font-size: 16px;
+                }
+                p{
+                    width: 98%;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+
+    @include breakpoints(mobile){
+       height: auto;
+       width: 100%;
+    }
+
+    @include breakpoints(laptop){
+        width: 90%;
+        margin: 0px auto;
+        justify-content: space-around;
+    }
+}

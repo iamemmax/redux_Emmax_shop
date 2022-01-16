@@ -1,0 +1,95 @@
+@import "../saas-config/color.scss";
+@import "../saas-config/font.scss";
+@import "../saas-config/mixing.scss";
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+.category-container{
+    @include responsive;
+    height: auto;
+    background-color: map-get($colors, "light" );
+    // padding: 20px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+    
+    
+    
+    //  heading
+    @include heading;
+    
+    
+    
+    
+    
+    
+    // ###################### nested div with images
+    .feature-container{
+        // @include grid;
+
+        
+        > div{
+            
+            width: 100%;
+
+            padding: 20px;
+            img{
+                width: 100px;
+                margin: 0px auto;
+                padding: 20px;
+                
+
+                
+                &:hover{
+                    transform: scale(0.9);
+                transition: transform .5 ease;
+            
+                }
+            }
+            
+             a{
+                            text-decoration: none;
+                            color: #000;
+                            font-size: 12px;
+                            font-family: 'Montserrat', sans-serif;
+                            font-weight: 500;
+                            text-transform: capitalize;
+                            width: 100%;
+                            text-align: center;
+                          
+                            // z-index: 9;
+                            
+            
+                        }
+            
+        }
+        
+        
+        
+    }
+    .slick-prev:before {
+        background-color:lighten( $primary,  10%);
+        padding: 6px;
+        position: absolute;
+        left: 1.5rem !important;
+        
+        z-index: 9 !important;
+       
+    }
+    .slick-next:before {
+        background-color:lighten( $primary,  10%);
+        padding: 6px;
+        position: absolute;
+        right: 1.5rem !important;
+        
+        z-index: 9 !important;
+       
+    }
+}
+

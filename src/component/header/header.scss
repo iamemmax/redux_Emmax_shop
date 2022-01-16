@@ -1,0 +1,520 @@
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "../saas-config/font.scss";
+@import "../saas-config/color.scss"; 
+@import "../saas-config/mixing.scss"; 
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+
+}
+html,body{
+    overflow-x: hidden !important;
+    width: 100%;
+    
+}
+// $primary:#491f68;
+
+.header{
+    // background-color: #94004F;
+    background-color: map-get($colors, "dark");
+    padding: 10px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% ;
+    position: relative;
+    z-index: 15;
+    
+    
+     // search engin container
+
+     
+    //  
+
+    nav{
+        @include flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0px auto;
+        position: relative;
+        height: 60px !important;
+
+        .logo{
+            z-index: 99;
+            a{
+                text-decoration: none;
+                color: map-get($colors, "light" );
+                font-family: 'Poppins', sans-serif;
+                margin-left: -7px;
+
+
+
+                @include breakpoints (mobile){
+                    font-size: 18px;
+                    margin-left: 3rem;
+                    font-weight: 400;  
+                    
+                }
+                @include breakpoints (tablet){
+                    font-size: 22px;
+                    margin-left: 4rem;
+
+                  
+                    
+                }
+                @include breakpoints (laptop){
+
+                  
+                    
+                }
+                
+            }
+
+        }
+
+
+
+
+
+
+            // search bar
+
+            .search-box{
+                width: 150px;
+                @include flex;
+                display: none;
+       
+
+       
+                @include breakpoints(tablet){
+                   
+                       display: block;
+                       padding: 5px;
+                       width: 50%;
+                       position: relative;
+       
+                       input{
+                           width: 90%;
+                           padding: 13px;
+                           outline: none;
+                           border: none;
+                           font-size: 14px;
+                       }
+                       button{
+                           outline: none;
+                           border: none;
+                           font-size: 18px;
+                           padding: 10px;
+                           position: absolute;
+                           background-color: $secondary;
+                           top: 50%;
+                           transform: translateY(-50%)
+
+                           
+                       }
+                          
+                   
+                }
+            }
+            
+        
+        ul{
+            @include flex;
+            position: relative;
+            
+
+            li{
+                list-style: none;
+
+            }
+            a{
+                text-decoration: none;
+                color: #eee;
+                padding: 10px 18px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                position: relative;
+                
+
+                &:is(:hover, .active){
+                    color: $secondary;
+                }
+                #icon{
+                    font-size: 30px;
+                    
+                    @include breakpoints (mobile){
+                        font-size: 22px;
+                        // border: 2px solid red;
+
+                    }
+                    
+                }
+
+                @include breakpoints (mobile){
+                    font-size: 12px;
+                }
+                
+            }
+            
+           
+            
+            
+            #cartNo{
+                background-color: #eee;
+                padding: 2px;
+                height: 25px !important;
+                width: 25px  !important;
+                position: absolute;
+                border-radius: 100% !important;
+                color: red;
+                font-size: 14px;
+            
+                text-align: center;
+
+                &:hover{
+                    background-color: #eee;
+                }
+
+
+                @include breakpoints (mobile){
+                    font-size: 12px;
+                    height: 22px !important;
+                    width: 22px  !important;
+
+                    margin-top: -5px;
+                }
+            }
+
+           
+           
+        }
+        .menu{
+            // display: none;
+        }
+
+
+
+        @include breakpoints (mobile){
+            height: 40px;
+            width: 100% !important;
+            @include flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            
+        }
+    }
+
+    
+
+
+    @media screen and (min-width:768px) {
+        .menu{
+            display: flex !important;
+           color: #eee;
+           padding: 10px;
+           cursor: pointer;
+
+           #menuIcon{
+            font-size: 30px;
+           }
+           
+        }
+        .middle_nav{
+            background-color: rgb(3, 0, 0);
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 60px);
+            bottom: 0;
+            display: block;
+            border-top: 1px solid map-get($colors, "light" );
+            transform: scale(0);
+            transition:  transform .5s ease-in;
+            transform-origin: bottom left;
+            z-index: 99 !important;
+
+            a{
+                padding: 10px;
+                line-height: 60px;
+                margin-top: 2rem;
+            }
+        }
+        .ToggleNav{
+            transform: scale(1);
+            transform-origin: top right;
+
+        }
+        
+        .last-nav{
+            justify-self: right !important;
+            margin-right: 10px !important;
+            @include flex;
+            margin-right: 2rem !important;
+
+           
+            @include breakpoints (mobile){
+             .mobile__Search{
+                    font-size: 50px !important;
+                    cursor: pointer;
+
+            }
+
+        }
+            
+        
+            
+            @include breakpoints (tablet){
+                margin-right: 0.5rem !important;
+
+                .mobile__Search{
+                display: none !important;
+            }
+
+
+        }
+           
+            @include breakpoints (laptop){
+                margin-right: 4rem !important;
+
+                    a{
+                        font-size: 14px;
+                    }
+
+                    #icon{
+                        font-size: 30px;
+                    }
+                    #cartNo{
+                        font-size: 16px;
+                        line-height: 30px;
+                        height: 30px !important;
+                        width: 30px !important;
+                        color: $secondary;
+                    }
+                    
+
+        }
+
+            
+        }
+
+        
+    }
+
+
+    // header media query
+    
+    
+}
+
+.fixedHeader{
+        position: fixed;
+        left: 0;
+        width: 100%;
+        right: 0;
+        top: 0;
+        // display: none;
+        
+        transition: position, background .15 ease-in;
+        background-color: map-get($colors ,  $primary_light);
+        
+
+        @include breakpoints(mobile){
+            width: 100%;
+        }
+
+    }
+
+    
+
+    .leftNav{
+        width: 200px;
+        background-color: lighten(map-get($colors, "dark" ), 10%);
+        flex: 1;
+        // position: relative;
+
+        li{
+            list-style: none;
+            margin-top: 10px !important;
+        }
+        a{
+            text-decoration: none;
+            color: darken(map-get($colors, "light" ),  30%);
+            font-family: 'Poppins', sans-serif;
+            line-height: 45px;
+            padding-left: 2rem;
+            transition: color .5 ease-in;
+            font-size: 14px;
+            
+            &:hover{
+                color: $secondary;
+            }
+            
+            #faIcon{
+                margin-right: 15px;
+                margin-top: 15px;
+                opacity: .5;
+                
+                &:hover{
+                    opacity: .8;
+                }
+            }
+        }
+
+        @media screen and (max-width:1100px) {
+            // display: none;
+            flex: 2;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            width: 300px;
+            transform: translateX(-100%);
+            transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            a{
+                font-size: 14px;
+                line-height: 55px;
+            }
+            
+        }
+        @media screen and (min-width:1100px) and (max-width:1300px) {
+            display: block;
+            flex: 2;
+            position: relative;
+            // width: 250px;
+            
+        }
+    }
+
+    .menu{
+        position: fixed;
+        top: 0;
+     z-index: 9;
+        padding: 10px;
+        left: 15px !important;
+        top: 5px;
+        // display: none;
+        cursor: pointer;
+        z-index: 999 !important;
+        height: 50px !important;
+        width: 50px !important;
+        @include flex;
+        
+        
+        #menuIcon{
+            font-size: 30px;
+            // border: 2px solid red;
+            width: 50px;
+            color: map-get($colors, "light" );
+        }
+        @media screen and (max-width:1000px) {
+            text-align: center;
+            display: block;
+            margin-left: -1rem;
+         }
+    }
+    
+    .showNav{
+        transform: translateX(0) !important;
+        transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    }
+    
+    
+    // remove toggle Onlick
+    .removeOnlick{
+        position: fixed;
+        inset: 0;
+        width: 100% !important;
+        height: 100vh;
+        z-index: 10 !important;
+        left: 0;
+        display: none !important;
+    
+        @media screen and (max-width:1000px) {
+            display: block;
+         }
+    }
+    .showRemove{
+        display: block !important;
+    }
+
+    .close{
+        display: none !important;
+    }
+
+
+
+    // hide bar on home menu
+
+    .hideBar{
+        display: none;
+    }
+    @media screen and (max-width:1100px) {
+        .hideBar{
+            display: block !important;
+
+        }
+    }
+    // general navigation
+    .generalNav{
+        position: absolute;
+        // background-color: $primary;
+        width: 300px;
+        top: 63px;
+        // // border: 2px solid #fff;
+        transform: translateX(-200%) !important;
+        transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        @extend .leftNav;
+    }
+
+    .showGeneralNav{
+        transform: translateX(0) !important;
+        transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    }
+
+
+
+    // rightBar(my accountBar, logout and new product link)
+    .rightBar{
+        position: fixed;
+        right: 0;
+        background-color: #fff;
+        width: 150px;
+        top: 3.5rem;
+        padding: 10px;
+        border-radius: 5px;
+        transform: scale(0);
+        transition: transform .5 ease-in;
+
+        li{
+            list-style: none;
+
+            text-align: left;
+            &:nth-child(5){
+                cursor: pointer;
+                @extend a;
+            }
+        }
+
+        a{
+            text-decoration: none;
+            line-height: 30px;
+            color: #000;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            
+            &:hover{
+                color: $secondary;
+            }
+        }
+
+    }
+    .showRightBar{
+        transform:  scale(1) !important;
+    }

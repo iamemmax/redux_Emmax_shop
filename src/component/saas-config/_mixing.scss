@@ -1,0 +1,131 @@
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+@mixin responsive {
+    width: 90%;
+    margin: 0px auto;
+    max-width: 100%;
+    padding-top: 20px;
+    
+     @include breakpoints(mobile){
+         width: 100%;
+     }
+     @include breakpoints(tablet){
+         width: 100%;
+         padding: 10px 20px;
+     }
+     @include breakpoints(laptop){
+         width: 90%;
+         margin: 10px auto;
+     }
+}
+
+@mixin grid {
+    display:  grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    
+    
+    @media screen and (max-width:1000px) {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        
+    }
+
+}
+
+@mixin heading {
+    .heading{
+        width: 100%;
+        text-align: center;
+        padding: 15px 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 900;
+        position: relative;
+        margin-bottom: 10px;
+        margin-top: 1rem;
+
+        &::after{
+            position: absolute;
+            content: "";
+            width: 50px;
+            border: 1px solid $secondary;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+            margin-top: 10px;
+        }
+    }
+}
+
+@mixin after($background:#000) {
+                position: absolute;
+                content: "";
+                left: 0;
+                width: 100%;
+                background-color: $background;
+                top: 0;
+                height: 100%;
+                opacity: .9;
+                position: absolute;
+       
+        
+}
+
+
+
+@mixin sliderControl($left:1rem, $right:1.5rem){
+    
+.slick-prev{
+    z-index: 9 !important;
+    
+
+    &:before() {
+        background-color:lighten(red,  10%);
+        padding: 6px;
+        position: absolute;
+        left: $left;
+        z-index: 9 !important;
+        display: none !important;
+  }
+}
+  .slick-next:before {
+      position: fixed;
+      z-index: 9;
+      right:$right ;
+      background-color:lighten( $primary,  10%);
+      padding: 6px;
+
+    }
+}  
+
+
+
+@mixin breakpoints($point) {
+    @if $point == mobile {
+        @media screen and (min-width:320px) {
+            @content;
+        }
+    }
+    @if $point == tablet {
+        @media screen and (min-width:768px) {
+            @content;
+        }
+    }
+
+    @if $point == laptop {
+        @media screen and (min-width:1224px) {
+            @content;
+        }
+    }
+    @if $point == desktop {
+        @media screen and (min-width:1824px) {
+            @content;
+        }
+    }
+}

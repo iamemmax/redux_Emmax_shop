@@ -1,0 +1,22 @@
+@import ".././saas-config/color.scss";
+@import ".././saas-config/font.scss";
+@import ".././saas-config/mixing.scss";
+.error{
+    background-color: $secondary;
+    width: 400px;
+    padding: 10px;
+    color: #fff;
+    font-weight: 500;
+    @include flex;
+    justify-content: space-between;
+    // transform: scale(1) !important;
+
+    #close{
+        color: map-get($colors, "danger" );
+        cursor: pointer;
+        font-size: 20px;
+    }
+}
+.closeAlert{
+transform: scale(0) !important;
+}
