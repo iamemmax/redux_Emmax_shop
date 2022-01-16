@@ -62,7 +62,7 @@ export const GetProductReducer = (state = initial, { type, payload }) => {
         ...state,
         loading: false,
         products: payload.results,
-        currentPage: payload.page,
+        // currentPage: payload.page,
         Pages: [...state.Pages,  ...payload],
         currentPage: state.currentPage + 1,
       };

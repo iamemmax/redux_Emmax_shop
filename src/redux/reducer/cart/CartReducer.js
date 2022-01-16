@@ -36,16 +36,17 @@ export const AddToCartReducer = (state = initial, {type, payload}) =>{
       
               
               
-
-            return{...state, loading:false}
         }
+            return{...state, loading:false}
 
         case ADD_TO_CART_FAIL:
             return {...state, loading:false, error:payload}
 
         // close cart alert msg
         case CLOSE_CART_ALERT:
-            state.cart.map(data => data.alertMsg = "");
+            state.cart.map(data => {
+                data.alertMsg = ""
+            })
 
         case INCREASE_COUNT :
             let increaseCount = state.cart.map((data, key) => {

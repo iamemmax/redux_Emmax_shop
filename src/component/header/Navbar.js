@@ -1,6 +1,6 @@
 import React, {useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {NavLink, Link, useNavigate, Navigate} from "react-router-dom"
+import {NavLink, Link,  Navigate} from "react-router-dom"
 import {searchProduct} from "../../redux/action/product/productAction"
 import {LogoutUser} from "../../redux/action/user/user"
 import "../header/header.scss"
@@ -19,7 +19,7 @@ function Navbar() {
     // total cart no
 let { cart} = Cart
 let cartN = cart && cart.map(data => data.qty)
-let cartNo = cartN.reduce((a, b) => a + b)
+let cartNo = cartN.reduce((a, b) => a + b, 0)
 
 
 // console.log(cartB);

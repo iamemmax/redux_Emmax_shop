@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {RegisterUser} from "../../redux/action/user/user"
-import {Link,  useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Loading from '../config/Loading';
 import Modal from '../config/Modal';
 
@@ -16,7 +16,7 @@ function Register() {
   const [input, setInput] = useState({username:"", email:"", password:"", password2:""}) 
   const [userImg, setUserImg] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
-  const [setImgPreviewError] = useState(null);
+  const [ImgPreviewError, setImgPreviewError] = useState(null);
   
   const handleInput = (e) =>{
     setInput({...input, [e.target.id]:e.target.value}) 
@@ -39,7 +39,7 @@ function Register() {
     }else{
       setImgPreviewError(true)
     }
-  }, [userImg]);
+  }, [userImg, imgPreview]);
   let {username, email, password, password2} = input
 
   
