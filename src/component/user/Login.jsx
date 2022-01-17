@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {LoginUser} from "../../redux/action/user/user"
 import {Link, useNavigate} from "react-router-dom"
 import Loading from '../config/Loading';
-import Error from '../config/Error';
+// import Error from '../config/Error';
 import  *  as faIcions  from "react-icons/fa";
 import  *  as fcIcions  from "react-icons/fc";
 import "./auth.scss"
@@ -26,7 +26,7 @@ const dispatch = useDispatch()
     
     let {email, password} = input
     const loggin = useSelector(state => state.loggin)
-    let {loading, error, userInfo} = loggin
+    let {loading,  userInfo} = loggin
     const handleSubmit =(e) =>{
         e.preventDefault()
         dispatch(LoginUser(email, password))

@@ -76,14 +76,14 @@ const handleToggleRightBar = (e) =>{
    
 
    
-    const rightBarBox = document.getElementById("rightBarBox")
-    const toggle_right_icon = document.getElementById("toggle_right_icon")
-    if(e.target.id !== "toggle_right_icon" && e.target.id !== "rightBarBox"){
-        setToggleRightBar(null)
-        if(e.target.id === e.target.id !== "rightBarBox"){
-            console.log("yes");
-        }
-    }
+    // const rightBarBox = document.getElementById("rightBarBox")
+    // const toggle_right_icon = document.getElementById("toggle_right_icon")
+    // if(e.target.id !== "toggle_right_icon" && e.target.id !== "rightBarBox"){
+    //     setToggleRightBar(null)
+    //     if(e.target.id === e.target.id !== "rightBarBox"){
+    //         console.log("yes");
+    //     }
+    // }
 }
 
 

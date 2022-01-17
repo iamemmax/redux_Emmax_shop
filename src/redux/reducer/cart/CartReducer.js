@@ -28,10 +28,12 @@ export const AddToCartReducer = (state = initial, {type, payload}) =>{
           
           return {...state, loading:false}
         }else{
-           state.cart.map((data, key) =>{
+           state.cart?.map((data, key) =>{
             if(data.id === payload.id){
                 return {
                     qty:state.cart[key].qty++, alertMsg:data.alertMsg = "item already added"}
+             }else{
+                 return null
              }
            })
       
@@ -41,7 +43,7 @@ export const AddToCartReducer = (state = initial, {type, payload}) =>{
             return{...state, loading:false}
 
         case ADD_TO_CART_FAIL:
-            return {...state, loading:false, error:payload}
+            return {...state, loading:false, error:payload};
 
         // close cart alert msg
         case CLOSE_CART_ALERT: 
@@ -49,7 +51,9 @@ export const AddToCartReducer = (state = initial, {type, payload}) =>{
             if(data){
                 data.alertMsg = ""
             }
+
         })
+        return {...state};
 
         case INCREASE_COUNT :
             let increaseCount = state.cart.map((data, key) => {

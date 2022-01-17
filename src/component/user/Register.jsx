@@ -67,6 +67,7 @@ function Register() {
     // <p>{`${data.username} your ${msg}`}</p>
       return (
         <>
+        {imgPreviewError && imgPreviewError}
           {newUser&&  data !== undefined  &&  <Modal  msg={msg} pathname={"/"}/> }
         {error &&  <Error msg={error} />   }
         <div className='auth-container'>
