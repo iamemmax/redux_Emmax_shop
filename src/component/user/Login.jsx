@@ -51,7 +51,6 @@ const dispatch = useDispatch()
                   
               <div className='form'>
                <form onSubmit={handleSubmit} >
-            {error &&  <Error msg={error} />   }       
              <h2 className='header-title'>Signin to Emmax</h2>
                    <div className="loginAuternative">
                        <button title='google'><fcIcions.FcGoogle/></button>

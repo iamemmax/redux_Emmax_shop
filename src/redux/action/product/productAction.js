@@ -1,4 +1,4 @@
-import { GET_PRODUCT_BY_ID_FAIL, GET_PRODUCT_BY_ID_RESPONSE, GET_PRODUCT_BY_ID_SUCCESS, GET_PRODUCT_FAIL, GET_PRODUCT_RESPONSE, GET_PRODUCT_SUCCESS, NEW_PRODUCT_FAIL, NEW_PRODUCT_RESPONSE, NEW_PRODUCT_SUCCESS, SEARCH_RESPONSE, SEARCH_SUCCESS, SEARCH_FAIL, GET_HOT_DEAL_RESPONSE, GET_HOT_DEAL_SUCCESS, GET_HOT_DEAL_FAIL } from "../../constant/Product"
+import { GET_PRODUCT_BY_ID_FAIL, GET_PRODUCT_BY_ID_RESPONSE, GET_PRODUCT_BY_ID_SUCCESS, GET_PRODUCT_FAIL, GET_PRODUCT_RESPONSE, GET_PRODUCT_SUCCESS, NEW_PRODUCT_FAIL, NEW_PRODUCT_RESPONSE, NEW_PRODUCT_SUCCESS, SEARCH_RESPONSE, SEARCH_SUCCESS, SEARCH_FAIL, GET_HOT_DEAL_RESPONSE, GET_HOT_DEAL_SUCCESS, GET_HOT_DEAL_FAIL, DELETE_PRODUCT_SUCCESS } from "../../constant/Product"
 import axios from 'axios'
 import _ from "lodash"
 
@@ -106,3 +106,16 @@ export const newProduct = (title, price, postedBy, category, img, description ) 
      
     
 }
+
+// delete post
+export const deleteProducts = (id) => async (dispatch) =>{
+    // dispatch({type})
+    try {
+        let response = await axios.delete(`https://kingproduct.herokuapp.com/product/remove/${id}`)
+        dispatch({type:DELETE_PRODUCT_SUCCESS, payload:response.data})
+    } catch (error) {
+        dispatch({type:DELETE_PRODUCT_SUCCESS, payload:error.message})
+        
+    }
+}
+

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getProductById } from "../../redux/action/product/productAction";
+import { ToastContainer, toast , Bounce} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { useNavigate, useParams } from "react-router-dom";
+import { getProductById, deleteProducts } from "../../redux/action/product/productAction";
 import Navigation from "../header/Navigation";
 import "../banner/banner.scss";
 import Loading from "../config/Loading";
@@ -15,6 +18,8 @@ function SingleProduct() {
     dispatch(getProductById(slug));
   }, [dispatch, slug]);
   const products = useSelector((state) => state.single);
+  const loggin = useSelector(state => state.loggin.userInfo)
+let {isAuthenticated, user} = loggin
   let { loading, product } = products;
 
   
@@ -33,13 +38,26 @@ function SingleProduct() {
     }
   };
 
+
+  // remove post by the post uploader
+ const navigate = useNavigate()
+  const handlePostDelete = () =>{
+    if(window.confirm("Area u sure you want to delete this product"))
+        dispatch(deleteProducts(product._id))
+           toast.success("Product Deleted Successfully")
+           setTimeout(() => {
+             navigate("/")
+             
+           }, 2000);
+  }
   return (
     <div className="single-product">
       <Navigation />
+      <ToastContainer  draggable={true} transition={Bounce} autoClose={2000}/>
       {loading && <Loading />}
       
         {product && (
-          <div className="single"  key={product.slug}>
+          <div className="single"  key={product._id}>
             <div className="left">
               <div className="display_img">
                 {
@@ -56,8 +74,19 @@ function SingleProduct() {
               <h2>{product.title}</h2>
               <p> &#8358; {product.price}</p>
               <span>{product.description}</span>
+            {isAuthenticated && user._id === product.postedBy._id
+            && <div>
+
+        <button>Edit</button>
+      <button onClick={handlePostDelete}>Delete</button>
             </div>
+            }
+            </div>
+
+
+      
           </div>
+      
         )}
       
     </div>

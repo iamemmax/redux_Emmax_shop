@@ -70,10 +70,22 @@ if(query){
 
 
 // show dashboard bar
+// const userName = document.getElementById("toggle-right")
 const handleToggleRightBar = (e) =>{
     setToggleRightBar(!toggleRightBar)
    
+
+   
+    const rightBarBox = document.getElementById("rightBarBox")
+    const toggle_right_icon = document.getElementById("toggle_right_icon")
+    if(e.target.id !== "toggle_right_icon" && e.target.id !== "rightBarBox"){
+        setToggleRightBar(null)
+        if(e.target.id === e.target.id !== "rightBarBox"){
+            console.log("yes");
+        }
+    }
 }
+
 
 
     return (
@@ -96,7 +108,7 @@ const handleToggleRightBar = (e) =>{
                        <>
                        
                             {/* <img src={user.userImg[0]} alt='profile Img' /> */}
-                            <p className=' toggle-right text-light' onClick={handleToggleRightBar}>{user && user.username}</p>
+                            <p className=' toggle-right text-light' id='toggle_right_icon' onClick={handleToggleRightBar}>{user && user.username}</p>
                        </>
                     :
                     <>
@@ -111,8 +123,9 @@ const handleToggleRightBar = (e) =>{
                    </ul>
             </nav>
 
+            {auth && isAuthenticated  &&
 
-            <div className={toggleRightBar ? 'rightBar showRightBar' : 'rightBar'} >
+            <div className={toggleRightBar ? 'rightBar showRightBar' : 'rightBar'} id='rightBarBox' >
                 <li><Link to="/">My Account</Link></li>
                 <li><Link to="/product/new">Add Product</Link></li>
                 <li><Link to="/">My Order</Link></li>
@@ -120,6 +133,7 @@ const handleToggleRightBar = (e) =>{
                 <li onClick={handleLogout} id='logoutBtn' >Logout </li>
                 
              </div>  
+}
         </div>
     )
 }

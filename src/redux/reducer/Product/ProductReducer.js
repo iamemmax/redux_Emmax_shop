@@ -1,4 +1,5 @@
 import {
+  DELETE_PRODUCT_SUCCESS,
   GET_HOT_DEAL_FAIL,
   GET_HOT_DEAL_RESPONSE,
   GET_HOT_DEAL_SUCCESS,
@@ -76,6 +77,14 @@ export const GetProductReducer = (state = initial, { type, payload }) => {
     case GET_PRODUCT_FAIL:
       return { loading: false, ...state, error: payload };
 
+      // delete product
+
+      case DELETE_PRODUCT_SUCCESS:
+       
+         return {
+           ...state
+         }
+       
     default:
       return state;
   }
@@ -143,3 +152,7 @@ export const newProduct = (state = {}, { type, payload }) => {
       return state;
   }
 };
+
+
+
+// delete product

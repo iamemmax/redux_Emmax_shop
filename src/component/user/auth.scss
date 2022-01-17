@@ -21,12 +21,17 @@ img{
     width: 100%;
     z-index: 99;
     @include flex;
-    overflow-x: hidden;
+    // overflow-x: hidden;
+    max-width: 100%;
 
     > div{
         width: 50%;
         background-color: $light;
         height: 100%;
+
+        
+
+       
 
     }
         .left_container{
@@ -71,9 +76,15 @@ img{
             }
 
             
-            @media screen and (max-width:768px) {
-              display: none;
+            @include breakpoints(mobile){
+                display: none;
             }
+            @include breakpoints(laptop){
+                display: flex;
+                width: 50% !important;
+
+            }
+            
         }
 
         .right_container{
@@ -88,6 +99,21 @@ img{
                 flex-direction: column;
 
 
+                @include breakpoints(mobile){
+                    width: 100%;
+                    // border: 2px solid red;
+                    
+                }
+                @include breakpoints(tablet){
+                    width: 100%;
+                    // border: 2px solid blue;
+                    
+                }
+                // @include breakpoints(laptop){
+                //        width: 50% !important;
+                //        border: 2px solid red;
+        
+                //     }
 
             }
                 .header-title{
@@ -101,7 +127,6 @@ img{
                 }
 
                 .loginAuternative{
-                    // border: 2px solid red;
                     width: 200px;
                     padding: 10px;
                     @include flex;
@@ -124,12 +149,12 @@ img{
 
                 }
                 .message_header{
-                    // border: 2px solid red;
                     position: relative;
                     text-align: center;
                     padding: 10px;
                     margin: 2rem;
                     width: 400px;
+                    
                     span{
                         background-color: $light;
                         padding: 10px;
@@ -140,21 +165,59 @@ img{
                         font-size: 14px;
                         font-family: 'Poppins', sans-serif;
 
+                        @include breakpoints(mobile){
+                            width: 55%;
+                        }
                     }
                     .divider{
                         border: 1px solid $secondary;
 
+                        
+
                     }
+                    @include breakpoints(mobile){
+                        width: 95%;
+                        margin: 20px 0;
+                    }
+                    @include breakpoints(tablet){
+                        width: 90%;
+                        margin-top: 2em;
+                     
+                 }
+                    @include breakpoints(laptop){
+                        width: 65%;
+                        margin-top: 2em;
+                     
+                 }
 
                 }
 
                 .form-input{
                     
-                    
-                    > div{
                         width: 100%;
-                        width: 400px;
-                        padding: 10px;
+                        // @include breakpoints(laptop){
+                       
+                        // }
+                        > div{
+                            // width: 100%;
+                            // padding: 10px;
+                            // border: 2px solid red;
+                            
+                            
+                            @include breakpoints(mobile){
+                                width: 90%;
+                                margin: 0px auto;
+
+                            }
+                            @include breakpoints(tablet){
+                                width: 90% !important;
+                                padding: 10px;
+                                margin: 0px auto;
+                            
+                        }
+                        @include breakpoints(laptop){
+                            width: 450px !important;
+                        }
 
                         label{
                             font-family: 'Montserrat', sans-serif;
@@ -170,7 +233,17 @@ img{
                             outline: none;
                             height: 50px;
                             font-family: 'Montserrat', sans-serif;
+
+
+                            @include breakpoints(tablet){
+                               height: 60px;
                             
+                        }
+                            @include breakpoints(laptop){
+                               height: 50px;
+                            
+                        }
+
                         }
 
                         input[type="submit"]{
@@ -228,10 +301,20 @@ img{
 
                 }
 
-            @media screen and (max-width:768px) {
+            @include breakpoints(mobile){
                 width: 100%;
             }
+            @include breakpoints(laptop){
+                width: 50%;
+              
+            }
         }
+
+        @include breakpoints(mobile){
+            width: 100%;
+            // display: block;
+        }
+       
 }
 
 

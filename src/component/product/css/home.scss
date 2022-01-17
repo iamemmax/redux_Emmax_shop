@@ -111,25 +111,13 @@
 
     
     // cart alert msg
-    
-.cartMsg{
-    color:  rgb(233, 29, 29);
-    text-align: center;
-    width: 100%;
-    display: none;
-    position: fixed;
-    font-size: 14px;
-    left: 0;
-    top: 0rem;
-    // height: 30px;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-.showMsg{
-    display: flex;
-    background-color: rgb(27, 59, 27);
-    padding: 10px;
-}
+    .toast-success{
+        display: flex;
+    }
 
-
+    .Toastify__close-button  {
+       width:400px !important;
+    }
+    .Toastify__close-button > svg {
+        // width: 40px !important;
+    }

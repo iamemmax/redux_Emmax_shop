@@ -16,7 +16,7 @@ function Register() {
   const [input, setInput] = useState({username:"", email:"", password:"", password2:""}) 
   const [userImg, setUserImg] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
-  const [ImgPreviewError, setImgPreviewError] = useState(null);
+  const [imgPreviewError, setImgPreviewError] = useState(null);
   
   const handleInput = (e) =>{
     setInput({...input, [e.target.id]:e.target.value}) 

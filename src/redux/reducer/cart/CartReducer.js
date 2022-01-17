@@ -29,10 +29,11 @@ export const AddToCartReducer = (state = initial, {type, payload}) =>{
           return {...state, loading:false}
         }else{
            state.cart.map((data, key) =>{
-                if(data.id === payload.id){
-                   return {qty:state.cart[key].qty++, alertMsg:data.alertMsg = "item already added"}
-                }
-            })
+            if(data.id === payload.id){
+                return {
+                    qty:state.cart[key].qty++, alertMsg:data.alertMsg = "item already added"}
+             }
+           })
       
               
               
@@ -43,10 +44,12 @@ export const AddToCartReducer = (state = initial, {type, payload}) =>{
             return {...state, loading:false, error:payload}
 
         // close cart alert msg
-        case CLOSE_CART_ALERT:
-            state.cart.map(data => {
+        case CLOSE_CART_ALERT: 
+        state.cart.forEach(data => {
+            if(data){
                 data.alertMsg = ""
-            })
+            }
+        })
 
         case INCREASE_COUNT :
             let increaseCount = state.cart.map((data, key) => {
