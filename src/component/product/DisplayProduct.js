@@ -46,13 +46,12 @@ function DisplayProduct({img, title, price, id, slug, alertMsg}) {
             
            
          <>   <ToastContainer draggable={true} autoClose={2000}
-         autoClose={1000}
+     
          hideProgressBar={false}
          newestOnTop={false}
-         closeOnClick
-         rtl={false}
+       
          pauseOnFocusLoss
-         draggable
+        
          pauseOnHover
          
          position={toast.POSITION.TOP_RIGHT} bodyClassName='toast-success' closeOnClick={true} transition={Slide}   /></>
