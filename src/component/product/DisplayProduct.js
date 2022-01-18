@@ -25,7 +25,16 @@ function DisplayProduct({img, title, price, id, slug, alertMsg}) {
     
     let showAlert = Cart.map(alert => alert.alertMsg)
 
-        toast.success( `${showAlert}`)
+        toast.success( `${showAlert}`, {
+            
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+        })
         
     
 }
@@ -34,9 +43,19 @@ function DisplayProduct({img, title, price, id, slug, alertMsg}) {
     return (
 
         <div className='product-container'>
-            <ToastContainer draggable={true} autoClose={2000} position={toast.POSITION.TOP_CENTER} bodyClassName='toast-success' closeOnClick={true} transition={Slide}  style={{width:"400px"}} />
             
            
+         <>   <ToastContainer draggable={true} autoClose={2000}
+         autoClose={1000}
+         hideProgressBar={false}
+         newestOnTop={false}
+         closeOnClick
+         rtl={false}
+         pauseOnFocusLoss
+         draggable
+         pauseOnHover
+         
+         position={toast.POSITION.TOP_RIGHT} bodyClassName='toast-success' closeOnClick={true} transition={Slide}   /></>
            <div className='product-box'>
                <Link to={`/product/${slug}`}>
                 <div>

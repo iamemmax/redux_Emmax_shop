@@ -113,6 +113,12 @@
     // cart alert msg
     .toast-success{
         display: flex;
+        height: 30px !important;
+        width: 100%;
+        @include breakpoints(mobile){
+            // z-index: 9999 !important;
+            margin-top:5rem !important;
+    }
     }
 
     .Toastify__close-button  {
@@ -121,3 +127,5 @@
     .Toastify__close-button > svg {
         // width: 40px !important;
     }
+
+    

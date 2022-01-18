@@ -71,64 +71,73 @@ function Register() {
           {newUser&&  data !== undefined  &&  <Modal  msg={msg} pathname={"/"}/> }
         {error &&  <Error msg={error} />   }
         <div className='auth-container'>
-         <div className='left_container'>
-         
-         <div className="notMember">
-                 <span> Already member</span>  <Link to="/user/login">Login Here</Link></div>
+             <div className='left_container'></div>
 
-         </div>
-         <div className='right_container'>
-         <div className='form'>
-          
-            <div className="header-title">Create an Account</div>
-            <div className="loginAuternative" style={{textAlign:"center", width:"100%"}}>
-                       <button title='google'><fcIcions.FcGoogle/></button>
-                       <button title='facebook'>< faIcions.FaFacebookF/></button>
-                   </div>
-          {loading && <Loading />}
-         <form  onSubmit={handleSubmit}>
-       
-           
-           <div className="form-input" id='myInput'>
-           <div className="imgBox">
 
-<label htmlFor="userImg"  className='UserImg'>
-  <aiIcions.AiOutlineCamera id='camera'/>
-  
-            <div className='imgPreview' style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/cover` : "",}}>
-            </div>
-
-  </label>
-<input type="file" id='userImg'  onChange={handleImg} />
-
-  </div>
-
-         <div className="input">
-       
-              <label htmlFor="username">Username</label>
-            <input type="text"  id='username' value={username} onChange={handleInput}/>
-          </div> 
-            <div className="input">
-        <label htmlFor="email">Email</label>
-            <input type="email" id='email' value={email} onChange={handleInput}/>
-            </div>
-            <div className="input">
-        <label htmlFor="password">Password</label>
-            <input type="password"  id='password'value={password} onChange={handleInput} />
-            </div>
-            <div className="input">
-          <label htmlFor="password2">Confirm Password</label>
-            <input type="password"  id='password2' value={password2} onChange={handleInput} />
-            </div>
+            <div className='right_container'>
+            <div className='form'>
+              
+                <div className="header-title"><h2>Create an Account</h2></div>
+                      <div className="loginAuternative">
+                          <button title='google'><fcIcions.FcGoogle/></button>
+                          <button title='facebook'>< faIcions.FaFacebookF/></button>
+                      </div>
+              {loading && <Loading />}
         
-              <div className="submit">
-                  <input type="submit" value="Register" />
-                   </div>
-          </div>
-          </form>
-</div>
+
+              <div className="message_header">
+                    <span>or do it via E-mail</span>
+                    <div className="divider"></div>
+                    </div>
+            <form  onSubmit={handleSubmit}>
+          
+              
+              <div className="myInput" id='myInput'>
+              <div className="imgBox">
+                  {/* <faIcions.FaUserCircle/> */}
+                <label htmlFor="userImg"  className='UserImg'>
+                  <aiIcions.AiOutlineCamera id='camera'/>
+                  
+                            <div className='imgPreview' style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/cover` : "",}}>
+                            </div>
+
+                  </label>
+                <input type="file" id='userImg'  onChange={handleImg} />
+
+           </div>
+
+            <div className="input">
+          
+                  {/* <label htmlFor="username">Username</label> */}
+                <input type="text"  id='username' value={username} placeholder='Username' onChange={handleInput}/>
+              </div> 
+                <div className="input">
+            {/* <label htmlFor="email">Email</label> */}
+                <input type="email" id='email' value={email} placeholder='Email' onChange={handleInput}/>
+                </div>
+                <div className="input">
+            {/* <label htmlFor="password">Password</label> */}
+                <input type="password"  id='password'value={password} placeholder='Password' onChange={handleInput} />
+                </div>
+                <div className="input">
+              {/* <label htmlFor="password2">Confirm Password</label> */}
+                <input type="password"  id='password2' value={password2} placeholder='Confirm Password' onChange={handleInput} />
+                </div>
+            
+                  <div className="submit">
+                      <input type="submit" value="Register" />
+                      </div>
+
+                      <div className="lastInfo">
+                  <span>Already a member ? <Link to="/user/login">Login</Link></span>
+                </div>
+
+              </div>
+              </form>
+    </div>
+            </div>
         </div>
-        </div>
+
         </>              
     )
 }

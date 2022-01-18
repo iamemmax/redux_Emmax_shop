@@ -18,6 +18,7 @@ img{
     top: 0;
     left: 0;
     height: 100vh;
+    // overflow-y: scroll;
     width: 100%;
     z-index: 99;
     @include flex;
@@ -27,119 +28,83 @@ img{
     > div{
         width: 50%;
         background-color: $light;
-        height: 100%;
+        // height: 100%;
 
         
 
-       
-
-    }
-        .left_container{
-            position: relative;
-            background-color: $primary_light !important;
-            background-image: url("https://images.unsplash.com/photo-1548142640-24bfcab81136?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fHNob3BwaW5nJTIwY3VzdG9tZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position:  bottom center;
-            object-fit: cover;
-            // @include flex;
-            // align-items: flex-end;
-            
-            &::after{
-                @include after($primary);
-                
-            }
-            
-            .notMember{
-                position: absolute;
-               bottom: 4rem;
-                display: inline-block;
-              
-                padding: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 9;
-                a{
-                    color: #fff;
-                    margin-left: 2rem;
-                    text-decoration: none;
-                    background-color: darken($secondary, 10%);
-                    padding: 10px;
-                    font-weight: 500;
-                    font-size: 18px;
-                    font-family: 'Roboto', sans-serif;
-                }
-                span{
-                    color: #eee;
-                    opacity: .6;
-                }
-            }
-
-            
-            @include breakpoints(mobile){
+// leftBanner
+        @include breakpoints(mobile){
+            &:nth-child(1){
                 display: none;
             }
-            @include breakpoints(laptop){
-                display: flex;
-                width: 50% !important;
-
-            }
-            
         }
 
-        .right_container{
-            position: relative;
-            form{
-                width: 100% !important;
-               position: absolute;
-                @include responsive;
-                @include flex;
-                justify-content: center;
-                height: 100%;
-                flex-direction: column;
+        @include breakpoints(laptop){
+            &:nth-child(1){
+                display: flex;
+                height: 100vh;
+                background-image: url("https://images.unsplash.com/photo-1553531889-56cc480ac5cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzE3fHxzaG9wcGluZyUyMGN1c3RvbWVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                object-fit: cover;
+                position: relative;
 
+                &::after{
+                @include after;
+                opacity: .8;
 
-                @include breakpoints(mobile){
-                    width: 100%;
-                    // border: 2px solid red;
-                    
                 }
-                @include breakpoints(tablet){
-                    width: 100%;
-                    // border: 2px solid blue;
-                    
-                }
-                // @include breakpoints(laptop){
-                //        width: 50% !important;
-                //        border: 2px solid red;
-        
-                //     }
-
             }
-                .header-title{
-                    width: 100% !important;
-                    text-align: center;
-                    font-weight: 500;
-                    padding: 10px;
-                    font-family: 'Poppins', sans-serif;
-                    font-size: 30px;
-                    padding: 20px;
+
+            // border: 2px solid red;
+            width: 50%;
+        }
+
+        
+    }
+        .right_container{
+           @include breakpoints(mobile){
+               width: 100%;
+               @include flex;
+               flex-direction: column;
+               height: 100vh;
+               overflow-y: scroll;
+
+
+               .imgBox{
+                   border: 4px solid $primary_light;
+                //    padding: 5px;
+                   height: 100px;
                 }
 
+                // header h2
+               .header-title{
+                   font-size: 20px;
+                   padding: 10px;
+                   text-align: center;
+                   font-weight: 500;
+                   font-family: 'Roboto', sans-serif;
+                   text-transform: uppercase
+                }
+                
                 .loginAuternative{
-                    width: 200px;
-                    padding: 10px;
                     @include flex;
+                    justify-content: space-between;
+                    padding: 10px;
+
 
                     button{
                         border: none;
-                    @include flex;
-
-                        padding: 5px 20px;
-                        margin: 10px;
+                        outline: none;
+                        background-color: #e7e5e5da;
+                        width: 49%;
+                        margin: 0px;
+                        padding: 14px 0px;
                         font-size: 20px;
-                        border-radius: 5px;
                         cursor: pointer;
+                        border-radius: 5px;
+                        @include flex;
 
                         &:nth-child(2){
                             color: $primary_light;
@@ -147,240 +112,251 @@ img{
 
                     }
 
-                }
-                .message_header{
-                    position: relative;
-                    text-align: center;
-                    padding: 10px;
-                    margin: 2rem;
-                    width: 400px;
-                    
-                    span{
-                        background-color: $light;
-                        padding: 10px;
-                        position: absolute;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        margin-top: -20px;
-                        font-size: 14px;
-                        font-family: 'Poppins', sans-serif;
-
-                        @include breakpoints(mobile){
-                            width: 55%;
-                        }
-                    }
-                    .divider{
-                        border: 1px solid $secondary;
-
-                        
-
-                    }
-                    @include breakpoints(mobile){
-                        width: 95%;
-                        margin: 20px 0;
-                    }
-                    @include breakpoints(tablet){
-                        width: 90%;
-                        margin-top: 2em;
-                     
-                 }
-                    @include breakpoints(laptop){
-                        width: 65%;
-                        margin-top: 2em;
-                     
-                 }
 
                 }
-
-                .form-input{
-                    
-                        width: 100%;
-                        // @include breakpoints(laptop){
+                    .message_header{
+                       padding: 20px 0;
+                       text-align: center;
+                       font-family: 'Poppins', sans-serif;
+                       font-size: 14px;
+                       position: relative;
                        
-                        // }
-                        > div{
-                            // width: 100%;
-                            // padding: 10px;
-                            // border: 2px solid red;
-                            
-                            
-                            @include breakpoints(mobile){
-                                width: 90%;
-                                margin: 0px auto;
+                       
+                       
+                       .divider{
+                           content: "";
+                           border: 1px solid $secondary;
+                           display: block;
+                          margin-top: -10px;
+                       }
 
+                       span{
+                           background-color:$light;              
+
+                           padding: 10px;
+                       
+                       }
+                    }
+
+                    .myInput{
+                        // border: 2px solid red;
+                        width: 320px !important;
+                        
+                        .imgBox{
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            @include flex;
+                            overflow: hidden;
+                            margin: 20px auto;
+                            @include flex;
+                            position: relative;
+                            margin-bottom: 5px;
+                           
+
+                            
+                            .imgPreview{
+                                // height: 100%;
+                                width: 90px;
+                                height: 90px;
+                                position: relative;
+                                background-size: cover;
                             }
-                            @include breakpoints(tablet){
-                                width: 90% !important;
-                                padding: 10px;
-                                margin: 0px auto;
                             
-                        }
-                        @include breakpoints(laptop){
-                            width: 450px !important;
-                        }
+                            input[type="file"]{
+                                display: none;
+                            }
 
-                        label{
-                            font-family: 'Montserrat', sans-serif;
-                            font-weight: 600;
-                            font-size: 16px;
+                            #camera{
+                                position: absolute;
+                                top: 50%;
+                                z-index: 9;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                transform: scale(0);
+                                font-size: 30px;
+                            }
+                            
+                            &:hover #camera{
+                                transform: scale(1);
+                            }
                         }
                         input{
                             width: 100%;
                             padding: 10px;
-                            margin-top: 10px;
-                            background-color: #EFEFEF;
+                            margin-top: 13px;
                             border: none;
+                            background-color: #f3f3f3;
                             outline: none;
                             height: 50px;
                             font-family: 'Montserrat', sans-serif;
+                            font-size: 14px;
+                            position: relative;
 
+                            
 
-                            @include breakpoints(tablet){
-                               height: 60px;
-                            
-                        }
-                            @include breakpoints(laptop){
-                               height: 50px;
-                            
-                        }
+                            &:focus{
+                               border: 1px solid red;
+                            }
 
                         }
 
                         input[type="submit"]{
                             background-color: $primary_light;
-                            color: $light;
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 18px;
+                            color: #fff;
+                            font-size: 20px;
+                            letter-spacing: 1px;
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            font-family: 'Poppins', sans-serif;
+                            transition: background .5s ease;
                             cursor: pointer;
+
+                            &:hover{
+                                background-color: lighten($primary_light,  6%);
+                            }
                         }
+                    }
+
+                .moreInfo{
+                    @include flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px;
+
+                    input[type="checkbox"]{
+                        width: 20px;
+                        display: block;
+                        margin-top: 1px;
+                        // padding-left: 5px;
                         
                     }
-                    .moreInfo{
+                    .checked{
                         @include flex;
                         justify-content: space-between;
-                        
-                        .checked{
-                        @include flex;
+                        align-items: center;
+                        margin: -10px;
+
+                        span{
+                            font-size: 14px;
+                            margin-left: 5px;
+                           font-family: 'Montserrat', sans-serif;
+                           font-weight: 400;
+
+                        }
+                    }
+
+                    a{
+                        text-decoration: none;
+                        font-size: 14px;
+                        text-transform: capitalize;
+                       font-family: 'Montserrat', sans-serif;
+                       font-weight: 400;
+                        color: #000;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .lastInfo{
+                    padding: 10px;
+                    text-align: right;
+                    width: 100%;
+                    // border: 2px red solid;
+                    span{
+                        font-size: 14px;
+                        opacity: .8;
+                        font-weight: 500;
+
+                    }
+                    a{
+                        font-size: 16px;
+                        text-decoration: none;
+                        color: $secondary;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+
+
+            // tablet design
+            @include breakpoints(tablet){
+                // width: 90%;
+                height: 100vh;
+                margin: 0px auto;
+
+                .myInput{
+                    width: 500px !important;
+                    // border: 2px solid red;
+
+                    input{
+                        height: 60px;
+                        font-size: 16px;
+                    }
+
+                    .imgBox{
                         width: 150px;
-                        justify-content: space-between;
+                        height: 150px;
 
-                            input[type="checkbox"]{
-                                font-size: 10px;
-                                width: 20px;
-                                height: 20px;
-                                cursor: pointer;
-
-                            }
-                            span{
-                                font-size: 14px;
-                                padding: 10px;
-                                margin-top: 10px;
-                                font-weight: 500;
-                                font-family: 'Montserrat', sans-serif;
-                            }
+                        .imgPreview{
+                            width: 100px;
+                            height: 100px;
                         }
-                        .forgetPassword{
-                            // border: 2px solid red;
-                            padding: 12px 0 0 12px;
-                            // padding-bottom: 0;
-                      
-
-                                a{  
-                                    font-size: 14px;
-                                    
-                                    font-weight: 500;
-                                    text-decoration: none;
-                                    color: inherit;
-                                    display: block;
-                                    text-transform: capitalize;
-                                    font-family: 'Montserrat', sans-serif;
-                                   
-                                }
-                            }
+                        #camera{
+                            z-index: 9;
+                            color: $secondary;
+                            font-size: 40px;
+                        }
                     }
+                }
+            }
+
+            // laptop
+            @include breakpoints(laptop){
+                width: 50%;
+                overflow-y: scroll;
+                // padding: 20px;
+
+                .header-title{
+                    margin: 20px;
+                    margin-top: 5rem;
+                }
+                .imgBox{
+                    width: 100px !important;
+                    height: 100px !important;
+
+                    #camera{
+                        font-size: 30px !important;
+                        color: #000;
+                    }
+                }
+                .imgPreview{
+                    width: 70px !important;
+                    height: 70px !important;
+
 
                 }
 
-            @include breakpoints(mobile){
-                width: 100%;
+                .myInput{
+
+                    width: 100% !important;
+                    input{
+                        height: 50px;
+                    }
+                }
             }
-            @include breakpoints(laptop){
-                width: 50%;
-              
-            }
-        }
-
-        @include breakpoints(mobile){
-            width: 100%;
-            // display: block;
-        }
-       
-}
-
-
-#myInput{
-    margin-top: -7rem;
-    input{
-        margin-top: -1px !important;
-        margin-bottom: -2px !important;
-    }
-    input[type="file"]{
-        display: none;
-
-        
-    }
-    
-    .UserImg{
-        @include flex;
-        width: 120px !important;
-        height: 120px;
-        cursor: pointer;
-        border-radius: 100%;
-        background-color: $primary_light;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        overflow: hidden;
-   
-        @media screen and (max-width:768px)  {
-            width: 100px;
-            height: 100px;
-        }
-
-        #camera{
-            position: absolute;
-            font-size: 30px;
-            // transform: scale(0);
-            opacity: .4;
-            transition: opacity .5s ease;
-
             
         }
 
-        &:hover #camera{
-            opacity:1;
-        }
-    }
-    .imgPreview{
-        width: 110px !important;
-        height: 110px;
-        border-radius: 100%;
-        display: block;
-        background-color: $primary_light;
+        
 
+        
 
-
-        img{
-            width: 100%;
-            height: 100%;
-        }
-
-        @media screen and (max-width:768px)  {
-            width:90px;
-            height: 90px;
-            // display: none;
-        }
 
     }
-}
+

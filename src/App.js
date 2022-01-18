@@ -9,6 +9,7 @@ import NewProduct from './component/product/NewProduct'
 import Carts from './component/cart/Carts'
 import Login from './component/user/Login'
 import Search from './component/header/Search'
+import NotFound from './component/main/NotFound'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route path="/user/login" element={<Login />}/>
               <Route path="/cart" element={<Carts />}/>
               <Route path="/search/" element={<Search />}/>
+              <Route path="*" element={<NotFound/>}/>
 
           </Routes>
           </main>

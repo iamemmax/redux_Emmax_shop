@@ -43,15 +43,13 @@ const dispatch = useDispatch()
             {loading && <Loading />}
               <div className='auth-container'>
                   <div className="left_container">
-                  <div className="notMember">
-                 <span> Not yet member</span>  <Link to="/user/register">Register Here</Link>
-                  </div>
+                  
                   </div>
                   <div className="right_container">
                   
-              <div className='form'>
+              {/* <div className='form'> */}
                <form onSubmit={handleSubmit} >
-             <h2 className='header-title'>Signin to Emmax</h2>
+             <div className='header-title'><h2>Signin to Emmax</h2></div>
                    <div className="loginAuternative">
                        <button title='google'><fcIcions.FcGoogle/></button>
                        <button title='facebook'>< faIcions.FaFacebookF/></button>
@@ -61,14 +59,14 @@ const dispatch = useDispatch()
                     <div className="divider"></div>
                     </div>
                     
-                <div className="form-input">
+                <div className="myInput">
                     <div className="email">
-                        <label htmlFor="email">Email</label>
+                        {/* <label htmlFor="email">Email</label> */}
                 <input type="email" placeholder="email"  id='email'  value={email} onChange={handleInput}/>
 
                     </div>
                     <div className="password">
-                        <label htmlFor="password">Password</label>
+                        {/* <label htmlFor="password">Password</label> */}
                         <input type="password" placeholder="password"  id='password' value={password} onChange={handleInput}/>
                     </div>
                     <div className="moreInfo">
@@ -85,9 +83,13 @@ const dispatch = useDispatch()
                    <div className="submit">
                   <input type="submit" value="Login" />
                    </div>
+                  
+                  <div className="lastInfo">
+                  <span>Not yet a member ? <Link to="/user/register">Register</Link></span>
+                  </div>
                 </div>
             </form>
-            </div>
+            {/* </div> */}
               
              </div>
             </div>
