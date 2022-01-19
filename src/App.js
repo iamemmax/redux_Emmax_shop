@@ -10,13 +10,14 @@ import Carts from './component/cart/Carts'
 import Login from './component/user/Login'
 import Search from './component/header/Search'
 import NotFound from './component/main/NotFound'
+import { Footer } from './component/footer/Footer'
 
 
 function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+       <header> <Navbar /></header>
       
         <main>
           <Routes>
@@ -31,6 +32,9 @@ function App() {
 
           </Routes>
           </main>
+          <footer>
+          <Footer />
+          </footer>
       </Router>
     </div>
   )

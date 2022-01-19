@@ -11,18 +11,7 @@ import { useLocation } from 'react-router-dom';
 
 function Banner() {
   const location = useLocation()
-  // const [removeBanner, setRemoveBanner] = useState(null);
-
-//  useEffect(() => {
-//   if(location.pathname = "/"){
-//     // setRemoveBanner(true)
-//     console.warn(location);
-//   }else{
-//     setRemoveBanner(false)
-//     console.warn(location.pathname)
-//   }
-//  }, [location]);
-
+  
     const settings = {
         dots: true,
         infinite: true,
@@ -65,27 +54,25 @@ function Banner() {
         <div className='banner-container '>
         <Slider {...settings}>
           <div>
-           <img src="https://images.unsplash.com/photo-1496136998968-81293d01179b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjU4fHxzaG9wcGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+           <img src='https://images.unsplash.com/photo-1567750722916-c0096e1ebc67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjgxfHxzaG9wcGluZyUyMGN1c3RvbWVyfGVufDB8MXwyfHw%3D&auto=format&fit=crop&w=500&q=60' alt="" />
           </div>
+          
           <div>
-          <img src="https://images.unsplash.com/photo-1541998916-822fe8274a99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fHNob3BwaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
-
+           <img src="https://images.unsplash.com/photo-1641695329829-300a1df58849?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNob3BwaW5nJTIwY3VzdG9tZXJ8ZW58MHwxfDJ8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
           </div>
+          
           <div>
-          <img src="https://images.unsplash.com/photo-1612776561584-394d456a751d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA0fHxzaG9wcGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
-
+           <img src="https://images.unsplash.com/photo-1639727833014-fe8b438e4c27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHNob3BwaW5nJTIwY3VzdG9tZXJ8ZW58MHwxfDJ8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
           </div>
+          
           <div>
-          <img src="https://images.unsplash.com/photo-1603466474065-e91b8dfff202?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTEyfHxzaG9wcGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
-
+           <img src='https://images.unsplash.com/photo-1636499410733-c1244037bfa1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njh8fHNob3BwaW5nJTIwY3VzdG9tZXJ8ZW58MHwxfDJ8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt="" />
           </div>
+          
           <div>
-         <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQwfHxzaG9wcGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+           <img src='https://images.unsplash.com/photo-1562070416-acfd0b43db97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTk3fHxzaG9wcGluZyUyMGN1c3RvbWVyfGVufDB8MXwyfHw%3D&auto=format&fit=crop&w=500&q=60' alt="" />
           </div>
-          <div>
-          <img src="https://images.unsplash.com/photo-1513094735237-8f2714d57c13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTIzfHxzaG9wcGluZyUyMGN1c3RvbWVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
-
-          </div>
+          
 
         </Slider>
         </div>

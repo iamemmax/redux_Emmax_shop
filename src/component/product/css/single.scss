@@ -2,122 +2,166 @@
 @import "../../saas-config/font.scss";
 @import "../../saas-config/mixing.scss";
 
+// html, body{
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+// }
+
 .single-product{
     width: 100%;
-    @include responsive;
-    
-    .single{
-    @include flex;
-    height:calc(100vh - 50px);
-    margin-top: -1rem;
-    background-color: $light;
-    align-items: flex-start;
-    justify-content: space-between;
+   @include flex;
+   flex-direction: column;
+   height: calc(100vh - 60px);
+   background-color: #fff;
+  
+   
+   .single{
+    //    border: 2px solid blue;
+       height: 100%;
 
-    div{
-        width:45%;
-    }
+   div{
+       margin: 2px;
+   }
+   .left{
+       @include flex;
+       height: 280px;
+       width: 100%;
+
+       div{
+           height: 100%;
+           border: 1px solid $secondary;
+           width: 45%;
+           
+        }
+           .selectImg{
+               flex: 1;
+               order: 1;
+               @include flex;
+               flex-direction: column;
+               justify-content: flex-start;
+               border: none;
+
+               img{
+                   border: 1px solid $primary;
+                //    height: 40px;
+                //    width: 40px;
+                   margin: 5px;
+                   cursor: pointer;
+               }
+           }
+           .display_img{
+               order: 2;
+               flex: 4;
+               
+               img{
+                   width: 100%;
+                   height: 100%;
+                   object-fit: cover;
+               }
+           }
+
+           @include breakpoints(tablet){
+               height: 450px;
+
+               .selectImg{
+                   
+                   
+                   img{
+                       width: 70px !important;
+                       object-fit: cover;
+                       
+                    }
+                }
+                .display_img{
+                   height: 450px;
+                   img{
+                       height: 100%;
+                       object-fit: contain;
+                   }
+               }
+           }
+   }
 
 
+   .right{
+       height: auto !important;
+       padding: 15px;
 
-    img{
-        width: 200px;
-    }
+       h2{
+           font-size: 18px;
+           font-family: 'Poppins', sans-serif;
+           padding: 0 5px;
 
-.left{
-    // border: 2px solid $secondary;
-    @include flex;
-    height: 100%;
-    
-    div{
-        // border: 2px solid $secondary;
-        width: 50%;
-        height: 90%;
+           @include breakpoints(tablet){
+               font-size: 30px;
+           }
+           @include breakpoints(laptop){
+               font-size: 30px;
+               padding: 5px 0;
+           }
+       }
+       p{
+           font-size: 22px;
+           padding: 2px 0px;
+           font-weight: 500;
+           font-family: 'Montserrat', sans-serif;
+
+           @include breakpoints(laptop){
+        padding: 10px 0;   
+        }
+       }
+
+       span{
+           font-size: 14px;
+           line-height: 30px;
+           padding: 2px 5px;
+           font-family: 'Poppins', sans-serif !important;
+
+           @include breakpoints(tablet){
+            font-size: 20px;
+            line-height: 35px;
+        }
+           @include breakpoints(laptop){
+            font-size: 16px;
+            line-height: 35px;
+
+                      padding: 5px 0px;
+
+        }
         
     }
-    .display_img{
-            flex: 4;
-            // border: 2px solid $primary;
-            background-color: #CBCBCB !important;
-            order: 2;
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-        .selectImg{
-            // border: 2px solid $primary;
-            flex: 1;
-            order: 1;
-            @include flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            
-
-            img{
-                width: 100px;
-                display: block;
-                height: 100px;
-                object-fit: cover;
-                margin-bottom: 10px;
-                cursor: pointer;
-                // border: 2px solid rgb(139, 138, 138);
-                // padding: 5px;
-                background-color: #CBCBCB;
-            }
-
-        }
-    
-}
+    .AddToCart{
+        width: 100%;
+        background-color: $secondary !important;
+        padding: 10px 0;
+        margin-top: 10px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        font-family: 'Poppins', sans-serif !important;
+        cursor: pointer;
+        color: #fff
+    }
 
 
-.right{
+   }
+   @include breakpoints (laptop){
     @include flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: auto;
-    flex-direction: column;
-    h2{
+    flex-direction: row;
+    align-items:  flex-start;
 
-        padding:  25px 10px 0px 10px;
-        font-size: 22px;
-        // border: 2px solid red;
-        font-family: 'Poppins', sans-serif;
-        width: 90%;
-        font-weight: 500;
+    width: 100%;
+    div{
+       width: 49% !important;
+       
+       
     }
-    p{
-        font-family: 'Roboto', sans-serif;
-        font-size: 30px;
-        font-weight: 600;
-        padding: 10px;
-        color: map-get($colors, "danger" );
-      
-    }
-    span{
-        padding: 10px;
-        line-height: 30px;
-        width: 90%;
-        font-size: 14px;
-        font-family: 'Montserrat', sans-serif;
-        text-align: justify;
-
-    }
+   }
 }
-
-
-
-    @media screen and (max-width:768px) {
-        height: auto;
-
-
-        > div{
-            width: 100%;
-        }
-        .selectImg{
-            padding: 20px;
-        }
-    }
-    }
+@include breakpoints (laptop){
+    flex-direction: row !important;
+    width: 100%;
+}
+   
 }

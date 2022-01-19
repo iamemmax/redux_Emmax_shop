@@ -1,5 +1,6 @@
 import {
   DELETE_PRODUCT_SUCCESS,
+  // FILTER_WARES,
   GET_HOT_DEAL_FAIL,
   GET_HOT_DEAL_RESPONSE,
   GET_HOT_DEAL_SUCCESS,
@@ -84,6 +85,9 @@ export const GetProductReducer = (state = initial, { type, payload }) => {
          return {
            ...state
          }
+      // case FILTER_WARES :
+        
+      //   // return {...state, Pages:filterWares}
        
     default:
       return state;

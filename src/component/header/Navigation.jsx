@@ -76,7 +76,7 @@ const handleRemove = () =>{
                 <nav className={ toggle ?  'generalNav showGeneralNav' : ' generalNav'}>
                     
 
-                    <ul className=''>
+                    <ul className='ul'>
                     <li><Link to="#"> <faIcions.FaBaby  id='faIcon'/> Babies</Link></li>
                 <li><Link to="#">< faIcions.FaTv id='faIcon'/>ComputerLine Electronics</Link></li>
                 <li><Link to="#"><faIcions.FaChair id='faIcon'/> Home & Office</Link></li>

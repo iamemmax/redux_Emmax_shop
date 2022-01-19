@@ -41,3 +41,9 @@ export const TOTAL_CART_NO = "TOTAL_CART_NO"
 export const SEARCH_RESPONSE = "SEARCH_RESPONSE"
 export const SEARCH_SUCCESS = "SEARCH_SUCCESS"
 export const SEARCH_FAIL = "SEARCH_BY_ID_FAIL"
+
+
+
+
+export const FILTER_WARES = "FILTER_WARES"
+export const FILTER_SHOE = "FILTER_SHOE"

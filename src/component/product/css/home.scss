@@ -17,10 +17,24 @@
     // @include breakpoints(tablet){
     //     width: 100%;
     // }
+    
     // @include breakpoints(tablet){
     //     width: 100%;
     // }
+
     
+    li{
+        list-style: none;
+    }
+
+    button{
+        background-color: unset;
+        padding: 10px;
+        justify-content: center;
+        @include flex;
+    }
+
+
 }
 @include heading;
 
@@ -107,8 +121,20 @@
             height: 70px;
         }
         
+        
+           
+            
+        
     }
-
+.sortBtn{
+    @include flex;
+    
+    button{
+        background-color: unset;
+        margin: 10px;
+        cursor: pointer;
+    }
+}
     
     // cart alert msg
     .toast-success{
@@ -128,4 +154,5 @@
         // width: 40px !important;
     }
 
+    
     

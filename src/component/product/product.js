@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getProductAction} from "../../redux/action/product/productAction"
+import {getProductAction, filterProduct} from "../../redux/action/product/productAction"
 import DisplayProduct from './DisplayProduct'
 import "./css/home.scss"
 // import Loading from "../config/Loading"
 import InfiniteScroll from 'react-infinite-scroll-component';
 import FetchLoader from '../config/FetchLoader'
 // import Search from '../header/Search'
-import {filterPages, filterProduct} from '../select/Select'
+// import {filterPages, filterProduct} from '../select/Select'
+// import { NavLink } from 'react-router-dom'
 
 
 
@@ -18,11 +19,11 @@ const  Product = () => {
     const dispatch = useDispatch()
     
     
-    const allProduct = useSelector(filterProduct)
-    const Pages = useSelector(filterPages)
-   
+    const allProduct = useSelector(state => state.products)
     
-    let {loading} = allProduct
+    
+    let {loading, Pages} = allProduct
+    // const Pages = useSelector(filterPages)
     console.log(Pages);
     
     
@@ -38,6 +39,11 @@ const  Product = () => {
             
          
 
+            const handleCategory = (e) =>{
+               dispatch(filterProduct(e.target.value))
+               
+            }
+
     return (
         <>
              {/* {loading && <Loading />} */}
@@ -46,8 +52,15 @@ const  Product = () => {
         <div className='product-listing-box'>
             <h2 className='heading'>New Arrival</h2>
             
+            <div className='sortBtn'>    
 
 
+            <li><button value="all" onClick={handleCategory}>All</button></li>
+               <li><button value="wares" onClick={handleCategory}>Wares</button></li>
+               <li><button value='electronics' onClick={handleCategory}>Electronics</button></li>
+               <li><button value='shoe' onClick={handleCategory}>Shoe</button></li>
+               <li><button value='phone' onClick={handleCategory}>Phone</button></li>
+</div>
              <InfiniteScroll
                 dataLength={Pages.length}
                 next={()=> setPage(page+1)}
@@ -56,6 +69,8 @@ const  Product = () => {
                 >
         
                 <div className='home-container'>
+                 
+                    
                        {Pages?.map((data, index) => (
                   
                            

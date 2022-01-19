@@ -39,7 +39,7 @@ const handleLogout = () =>{
 
 // fixed header on scroll
 const fixedHeaderBar = (e) =>{
-    if(window.pageYOffset > 100){
+    if(window.pageYOffset > 80){
         setHeader(true)
     }else{
         setHeader(false)

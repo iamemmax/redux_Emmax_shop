@@ -18,6 +18,8 @@ function SingleProduct() {
     dispatch(getProductById(slug));
   }, [dispatch, slug]);
   const products = useSelector((state) => state.single);
+  const Cart = useSelector((state) => state.carts.cart);
+  console.log(Cart);
   const loggin = useSelector(state => state.loggin.userInfo)
 let {isAuthenticated, user} = loggin
   let { loading, product } = products;
@@ -74,6 +76,18 @@ let {isAuthenticated, user} = loggin
               <h2>{product.title}</h2>
               <p> &#8358; {product.price}</p>
               <span>{product.description}</span>
+            
+                <button className="AddToCart">Add To Cart</button>
+
+                
+               
+                 
+                
+              
+
+
+
+
             {isAuthenticated && user._id === product.postedBy._id
             && <div>
 
