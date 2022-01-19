@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {NavLink, Link,  Navigate} from "react-router-dom"
 import {searchProduct} from "../../redux/action/product/productAction"
 import {LogoutUser} from "../../redux/action/user/user"
+import OutsideClickHandler from 'react-outside-click-handler';
 import "../header/header.scss"
 import  *  as ioIcions  from "react-icons/io5"
 import  *  as aiIcions  from "react-icons/ai";
@@ -32,20 +33,10 @@ const [header, setHeader] = useState(false);
 const handleLogout = () =>{
     if (window.confirm("Are you sure you want to logout?")) {
         dispatch(LogoutUser())
-        // window.location = "/"
        
       }
 }
 
-// fixed header on scroll
-const fixedHeaderBar = (e) =>{
-    if(window.pageYOffset > 50){
-        setHeader(true)
-    }else{
-        setHeader(false)
-    }
-}
-window.addEventListener("scroll", fixedHeaderBar)
 
 
 const [search, setSearch] = useState('');
@@ -69,27 +60,22 @@ if(query){
 
 
 
-// show dashboard bar
-// const userName = document.getElementById("toggle-right")
-const handleToggleRightBar = (e) =>{
-    setToggleRightBar(!toggleRightBar)
-   
-
-   
-    // const rightBarBox = document.getElementById("rightBarBox")
-    // const toggle_right_icon = document.getElementById("toggle_right_icon")
-    // if(e.target.id !== "toggle_right_icon" && e.target.id !== "rightBarBox"){
-    //     setToggleRightBar(null)
-    //     if(e.target.id === e.target.id !== "rightBarBox"){
-    //         console.log("yes");
-    //     }
-    // }
+// fixed header on scroll
+const fixedHeaderBar = (e) =>{
+    if(window.pageYOffset > 80){
+      
+        setHeader(true)
+    }else{
+        setHeader(false)
+    }
 }
+window.addEventListener("scroll", fixedHeaderBar)
+
 
 
 
     return (
-        <div className={header ? 'header fixedHeader' : 'header'}>
+        <div className={header ? 'header fixed' : 'header'}>
             <nav>
                 <div className="logo">
                     <h1><Link to="/">Emmax</Link></h1>
@@ -106,9 +92,20 @@ const handleToggleRightBar = (e) =>{
                    <ul className='last-nav'>
                        {auth && isAuthenticated  ?
                        <>
-                       
-                            {/* <img src={user.userImg[0]} alt='profile Img' /> */}
-                            <p className=' toggle-right text-light' id='toggle_right_icon' onClick={handleToggleRightBar}>{user && user.username}</p>
+                       <OutsideClickHandler onOutsideClick={() =>{setToggleRightBar(false)}}>
+
+            
+            <div className={toggleRightBar ? 'rightBar showRightBar' : 'rightBar'} id='rightBarBox' >
+                <li><Link to="/">My Account</Link></li>
+                <li><Link to="/product/new">Add Product</Link></li>
+                <li><Link to="/">My Order</Link></li>
+                <li><Link to="/">My Wishlist</Link></li>
+                <li onClick={handleLogout} id='logoutBtn' >Logout </li>
+                
+             </div>  
+                            
+             <p className=' toggle-right text-light' id='toggle_right_icon' onClick={()=>setToggleRightBar(!toggleRightBar)}>{user && user.username.toUpperCase().slice(0, 1)}</p>
+            </OutsideClickHandler>
                        </>
                     :
                     <>
@@ -123,17 +120,10 @@ const handleToggleRightBar = (e) =>{
                    </ul>
             </nav>
 
-            {auth && isAuthenticated  &&
+          
 
-            <div className={toggleRightBar ? 'rightBar showRightBar' : 'rightBar'} id='rightBarBox' >
-                <li><Link to="/">My Account</Link></li>
-                <li><Link to="/product/new">Add Product</Link></li>
-                <li><Link to="/">My Order</Link></li>
-                <li><Link to="/">My Wishlist</Link></li>
-                <li onClick={handleLogout} id='logoutBtn' >Logout </li>
-                
-             </div>  
-}
+            
+
         </div>
     )
 }

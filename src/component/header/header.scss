@@ -8,11 +8,15 @@ margin: 0;
 box-sizing: border-box;
 
 }
-html,body{
-    overflow-x: hidden !important;
-    width: 100%;
-    
+
+html, body{
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+
 }
+
+
 // $primary:#491f68;
 
 .header{
@@ -23,9 +27,11 @@ html,body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100% ;
-    position: relative;
+    width: 100% !important;
+    position: fixed;
     z-index: 15;
+    left: 0;
+    top: 0;
     
     
      // search engin container
@@ -260,6 +266,8 @@ html,body{
              .mobile__Search{
                     font-size: 50px !important;
                     cursor: pointer;
+                
+
 
             }
 
@@ -310,21 +318,19 @@ html,body{
     
 }
 
-.fixedHeader{
+.fixed{
         position: fixed;
         left: 0;
-        width: 100%;
+        width: 90% !important;
         right: 0;
         top: 0;
-        // display: none;
-        
         transition: position, background .15 ease-in;
-        background-color: map-get($colors ,  "primary_light");
-        
+        background-color:darken(map-get($colors , "primary_light" ), 10%);
+        overflow-x: auto !important;
 
-        // @include breakpoints(mobile){
-        //     width: 100%;
-        // }
+        @include breakpoints(mobile){
+            width: 100% !important;
+        }
 
     }
 
@@ -334,6 +340,7 @@ html,body{
         width: 200px;
         background-color: lighten(map-get($colors, "dark" ), 10%);
         flex: 1;
+        height: 100%;
         // position: relative;
 
         li{
@@ -483,7 +490,7 @@ html,body{
     // rightBar(my accountBar, logout and new product link)
     .rightBar{
         position: fixed;
-        right: 0;
+        right: 2rem;
         background-color: #fff;
         width: 150px;
         top: 3.5rem;
@@ -505,17 +512,28 @@ html,body{
         a{
             text-decoration: none;
             line-height: 30px;
-            color: #000;
+            color: #000 !important;
             font-weight: 400;
             font-family: 'Poppins', sans-serif;
             font-size: 14px;
             
             &:hover{
-                color: $secondary;
+                color: $secondary !important;
             }
         }
 
     }
     .showRightBar{
         transform:  scale(1) !important;
+    }
+    .toggle-right{
+        background-color: $secondary;
+        padding: 10px;
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+        @include flex;
+        line-height: 5px;
+        cursor: pointer;
+        font-size: 16px;
     }
