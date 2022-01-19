@@ -9,6 +9,7 @@ import Navigation from "../header/Navigation";
 import "../banner/banner.scss";
 import Loading from "../config/Loading";
 import "./css/single.scss";
+import { AddToCart } from "../../redux/action/cart/CartAction";
 
 function SingleProduct() {
   let { slug } = useParams();
@@ -18,14 +19,11 @@ function SingleProduct() {
     dispatch(getProductById(slug));
   }, [dispatch, slug]);
   const products = useSelector((state) => state.single);
-  const Cart = useSelector((state) => state.carts.cart);
-  console.log(Cart);
+  
   const loggin = useSelector(state => state.loggin.userInfo)
 let {isAuthenticated, user} = loggin
   let { loading, product } = products;
 
-  
-  
   
   
   const [show, setShow] = useState("");
@@ -52,6 +50,20 @@ let {isAuthenticated, user} = loggin
              
            }, 2000);
   }
+
+  const handleCart = (product) =>{
+
+    let data ={
+      title:product.title,
+      price:product.price,
+      img:show.src ||product.productImg[0].filename ,
+      id:product._id,
+      slug:product.slug
+    }
+    dispatch(AddToCart(data))
+    toast.success("Product added Successfully")
+   
+  }
   return (
     <div className="single-product">
       <Navigation />
@@ -76,16 +88,12 @@ let {isAuthenticated, user} = loggin
               <h2>{product.title}</h2>
               <p> &#8358; {product.price}</p>
               <span>{product.description}</span>
-            
-                <button className="AddToCart">Add To Cart</button>
-
-                
-               
-                 
-                
-              
 
 
+   
+  <button  onClick={() => handleCart(product)} className="AddToCart">Add To Cart</button>
+
+ 
 
 
             {isAuthenticated && user._id === product.postedBy._id

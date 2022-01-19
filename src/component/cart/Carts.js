@@ -29,15 +29,15 @@ function Carts() {
             
                 
 
-            {cart && cart.map((data, index) =>  <DisplayCart title={data.title} qty={data.qty} key={data.id} price={data.price} img={data.img}  id={data.id} no={index}/> )}
+            {cart && cart.map((data, index) =>  <DisplayCart title={data.title} qty={data.qty} key={data._id} price={data.price} img={data.img}  id={data.id} no={index}/> )}
                         
         
-            <tfoo>
+            <tfoot>
                 <tr>
                     <td>footer</td>
                     {/* <td colSpan={9} style={{border:'2px solid red', width:"100%"}}>grandTotal</td> */}
                 </tr>
-            </tfoo>
+            </tfoot>
         </table>
         </div>
     )

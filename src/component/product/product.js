@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getProductAction, filterProduct} from "../../redux/action/product/productAction"
+import {getProductAction} from "../../redux/action/product/productAction"
 import DisplayProduct from './DisplayProduct'
 import "./css/home.scss"
 // import Loading from "../config/Loading"
@@ -23,15 +23,13 @@ const  Product = () => {
     
     
     let {loading, Pages} = allProduct
-    // const Pages = useSelector(filterPages)
-    console.log(Pages);
+    
     
     
     const [page, setPage] = useState(2);
+    const [getProducts, setGetProducts] = useState([]);
     
-     
-           
-            
+    
         useEffect(() => {
             // dispatch(getProductAction(page)) 
             dispatch(getProductAction(page)) 
@@ -40,10 +38,39 @@ const  Product = () => {
          
 
             const handleCategory = (e) =>{
-               dispatch(filterProduct(e.target.value))
-               
-            }
+                if(e.target.value === "all"){
+                    let filter =  Pages.filter(data =>
+                        data.category !== e.target.value)
+                        setGetProducts(filter)
+                    }else{
+                        
+                            
+                        let filter =  Pages.filter(data =>
+                            data.category === e.target.value)
+                            
+                            setGetProducts(filter)
+                        
+                    }
+                }
+                console.log(getProducts);
 
+        useEffect(() => {
+          setTimeout(() => {
+             document.getElementById("allBtn").click()
+          }, 3000);
+        }, [])
+        
+
+        // add active class to filter category button
+        const btnBox = document.querySelector(".sortBtn")
+        const allBtn = document.querySelectorAll(".categorybtn")
+        allBtn.forEach(data =>{
+           data.addEventListener("click", function(){
+               btnBox.querySelector('.active').classList.remove('active')
+               data.classList.add("active")
+           })
+        })
+        
     return (
         <>
              {/* {loading && <Loading />} */}
@@ -53,16 +80,14 @@ const  Product = () => {
             <h2 className='heading'>New Arrival</h2>
             
             <div className='sortBtn'>    
-
-
-            <li><button value="all" onClick={handleCategory}>All</button></li>
-               <li><button value="wares" onClick={handleCategory}>Wares</button></li>
-               <li><button value='electronics' onClick={handleCategory}>Electronics</button></li>
-               <li><button value='shoe' onClick={handleCategory}>Shoe</button></li>
-               <li><button value='phone' onClick={handleCategory}>Phone</button></li>
+               <li><button id='allBtn' className='categorybtn active' value="all" onClick={handleCategory}>All</button></li>
+               <li><button value="wares"  className='categorybtn'  onClick={handleCategory}>Wares</button></li>
+               <li><button value='electronics'  className='categorybtn'  onClick={handleCategory}>Electronics</button></li>
+               <li><button value='shoe'   className='categorybtn' onClick={handleCategory}>Shoe</button></li>
+               <li><button value='phone'   className='categorybtn' onClick={handleCategory}>Phone</button></li>
 </div>
              <InfiniteScroll
-                dataLength={Pages.length}
+                dataLength={getProducts.length}
                 next={()=> setPage(page+1)}
                 hasMore={true}
                 loader={loading && <FetchLoader />}
@@ -71,10 +96,10 @@ const  Product = () => {
                 <div className='home-container'>
                  
                     
-                       {Pages?.map((data, index) => (
+                       {Pages&& getProducts.map((data, index) => (
                   
                            
-                           <DisplayProduct title={data.title} img={data.productImg[0].filename} id={data._id} key={index} price={data.price}  slug={data.slug}/>
+                           <DisplayProduct title={data.title} img={data.productImg[0].filename} id={data._id} key={index} price={data.price.toLocaleString("en-US")}  slug={data.slug}/>
                            
                       
                                 

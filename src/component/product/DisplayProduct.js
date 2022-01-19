@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { ToastContainer, toast , Slide} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -27,7 +27,7 @@ function DisplayProduct({img, title, price, id, slug, alertMsg}) {
 
         toast.success( `${showAlert}`, {
             
-                position: "top-right",
+                position: "top-center",
                 autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -45,18 +45,9 @@ function DisplayProduct({img, title, price, id, slug, alertMsg}) {
         <div className='product-container'>
             
            
-         <>   <ToastContainer draggable={true} autoClose={2000}
-     
-         hideProgressBar={false}
-         newestOnTop={false}
-       
-         pauseOnFocusLoss
-        
-         pauseOnHover
-         
-         position={toast.POSITION.TOP_RIGHT} bodyClassName='toast-success' closeOnClick={true} transition={Slide}   /></>
            <div className='product-box'>
-               <Link to={`/product/${slug}`}>
+               <a  href={`/product/${slug}`}>
+         <>   <ToastContainer draggable={true} autoClose={2000} hideProgressBar={false} newestOnTop={false} pauseOnFocusLoss pauseOnHover position={toast.POSITION.TOP_CENTER} bodyClassName='toast-success' closeOnClick={true} transition={Slide}   /></>
                 <div>
 
                 <img src={img} alt={title}/>
@@ -66,7 +57,7 @@ function DisplayProduct({img, title, price, id, slug, alertMsg}) {
                 <p>&#8358; {price}</p>
                 </div>
                </div>
-               </Link>
+               </a>
                 <button onClick={handleCart}>Add to cart</button>
            </div>
          

@@ -319,12 +319,12 @@ html,body{
         // display: none;
         
         transition: position, background .15 ease-in;
-        background-color: map-get($colors ,  $primary_light);
+        background-color: map-get($colors ,  "primary_light");
         
 
-        @include breakpoints(mobile){
-            width: 100%;
-        }
+        // @include breakpoints(mobile){
+        //     width: 100%;
+        // }
 
     }
 

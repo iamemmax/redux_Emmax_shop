@@ -87,6 +87,10 @@ export const GetProductReducer = (state = initial, { type, payload }) => {
          }
       // case FILTER_WARES :
         
+      //  let filterWares =  state.Pages(filter =>{
+       
+      //  })
+        
       //   // return {...state, Pages:filterWares}
        
     default:

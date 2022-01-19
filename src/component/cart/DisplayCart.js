@@ -11,6 +11,10 @@ import  *  as FaIcons  from "react-icons/fa";
 function DisplayCart({img, title, price, qty, id, no}) {
 const [count, setCount] = useState(qty);
 const dispatch = useDispatch()
+
+const handleCount = (e) =>{
+    setCount(e.target.value)
+}
     const handleIncrease = () =>{
         setCount(count+1)
         dispatch(increase(id))
@@ -48,7 +52,7 @@ const dispatch = useDispatch()
                     <td>{price}</td>
                     <td>
                         <button onClick={handleIncrease}><aiIcons.AiOutlinePlus /></button>
-                         <input type='text' id='qty' value={count} />
+                         <input type='text' id='qty' onChange={handleCount}  value={count} />
                          <button onClick={handleDecrease}><aiIcons.AiOutlineMinus /></button>
                     </td>
                 <td>{`${qty} * ${price} =  `} &#8358;{count * price}</td>
